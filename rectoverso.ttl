@@ -1,0 +1,1581 @@
+@prefix : <http://contoh.org/ontology#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#>.
+@prefix dcterms: <http://purl.org/dc/terms/>.
+
+# Class
+:Manuskrip rdf:type owl:Class ;
+    rdfs:label "Manuskrip" ;
+    rdfs:comment "Merupakan naskah sejarah atau dokumen buku." .
+
+:SisiHalaman rdf:type owl:Class ;
+    rdfs:label "Sisi Halaman" ;
+    rdfs:comment "Mewakili satu sisi dari lembaran naskah (recto atau verso)." .
+
+:Transliterasi rdf:type owl:Class ;
+    rdfs:label "Transliterasi Teks" .
+
+:Terjemahan rdf:type owl:Class ;
+    rdfs:label "Terjemahan Teks" .
+
+# Object Properties 
+:isFromManuscript rdf:type owl:ObjectProperty ;
+    rdfs:domain :SisiHalaman ;
+    rdfs:range :Manuskrip ;
+    rdfs:label "is from manuscript" .
+
+:hasTransliteration rdf:type owl:ObjectProperty ;
+    rdfs:domain :SisiHalaman ;
+    rdfs:range :Transliterasi ;
+    rdfs:label "has transliteration" .
+
+:hasTranslation rdf:type owl:ObjectProperty ;
+    rdfs:domain :SisiHalaman ;
+    rdfs:range :Terjemahan ;
+    rdfs:label "has translation" .
+
+# Data Properties 
+:value rdf:type owl:DatatypeProperty ;
+    rdfs:domain rdfs:Resource ;
+    rdfs:range xsd:string ;
+    rdfs:label "value" .
+
+# Deklarasi sebagai manuskrip
+:SanghyangTatwaAjnyana rdf:type :Manuskrip ;
+    dcterms:title "Sanghyang Tatwa Ajnyana" ;
+    dcterms:creator "Tien Wartini" , "Mamat Ruhimat" , "Ruhaliah" , "Aditia Gunawan" .
+
+# Data
+@prefix ont: <http://contoh.org/ontology#> .
+@prefix ex: <http://example.com/resource/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+# Manuscript instance
+ex:SanghyangTatwaAjnyana rdf:type ont:Manuskrip ;
+    dcterms:title "Sanghyang Tatwa Ajnyana: Teks dan Terjemahan" ;
+    dcterms:creator "Tien Wartini" , "Mamat Ruhimat" , "Ruhaliah" , "Aditia Gunawan" ;
+    dcterms:publisher "Perpustakaan Nasional RI", "Pusat Studi Sunda" ;
+    dcterms:date "2011" .
+
+# Triples
+ex:recto_1 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_1_transliteration ;
+    ont:hasTranslation ex:recto_1_translation .
+
+ex:recto_1_transliteration rdf:type ont:Transliterasi ;
+    ont:value "Ndah warah iyatnakna. Ini na pakeeun nu liwat ti raga nu luput ti bayu sabda hidep. Liwat ti rasa sarira, leuwih ti hurip, na minget tutur sang manon, liwat ti atma wisesa, leuwih ti acintya ning nyana ajnyana, lityaning taya. Ini ti nu sakini, nu nuduhan na raga, nu ngaranan bayu sabda hi"@su-Latn .
+
+ex:recto_1_translation rdf:type ont:Terjemahan ;
+    ont:value "Inilah ajaran yang harus diperhatikan. Ini adalah untuk diamalkan oleh orang yang lewat dari raga, yang lepas dari bayu sabda hidep. Lewat dari rasa jasmani, lebih dari hidup, yang mengingat ajaran Sang Manon, lewat dari ruh yang agung, lebih dari yang tak tergambarkan acintya pada nyana ajnyana, ruh dalam ketiadaan. Ini dari yang sekarang, yang menunjukkan kepada raga, yang dinamakan bayu sabda hi"@id .
+
+ex:verso_1 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_1_transliteration ;
+    ont:hasTranslation ex:verso_1_translation .
+
+ex:verso_1_transliteration rdf:type ont:Transliterasi ;
+    ont:value "dep, nu nyeueung ngareungeu, deungeun rasa, sarira, hurip na atma, minget tutur sang manon wisesa, nu ngaranan sakini. Inya alit bayu sabda hidep pun. Ini nu diboga raga, nu metukeun na bayu sabda hidep, nu tutur nyeueung ngareungeu, nu maka waya rasa di sarira, nu maka hurip atma, aci alit"@su-Latn .
+
+ex:verso_1_translation rdf:type ont:Terjemahan ;
+    ont:value "dep, yang melihat dan mendengar, dengan rasa, jasmani, hidupnya ruh, mengingat ajaran Sang Manon yang agung, yang dinamakan sekarang, yaitu kegaiban bayu sabda hidep. Demikian. Ini yang mempunyai raga, yang mengeluarkan bayu sabda hidep, yang selalu melihat dan mendengar, yang menyebabkan adanya rasa pada jasmani, yang menyebabkan hidupnya ruh, inti kegaiban"@id .
+
+ex:recto_2 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_2_transliteration ;
+    ont:hasTranslation ex:recto_2_translation .
+
+ex:recto_2_transliteration rdf:type ont:Transliterasi ;
+    ont:value "wisesana, pun. Nya ini tunggal na alit na raga sarira, nu metukeun na bayu, hamo kabayuan. Nya ini nu nyabda hamo kasabda, nya ini nu ngahidep hamo kahidep, ini nu ngadenge hamo kadenge, ini nu nyeueung hamo kajeueung, ini nu karasa hamo karasa, nya ini nu ngahuripan hamo"@su-Latn .
+
+ex:recto_2_translation rdf:type ont:Terjemahan ;
+    ont:value "yang agung. Demikian. Ini adalah bersatunya ruh raga jasmani, yang mengeluarkan bayu, takkan terkena bayu. Ini adalah yang mengeluarkan sabda takkan terkena sabda. Ini adalah yang mengeluarkan hidep takkan terkena hidep. Ini yang mendengar takkan terdengar. Ini yang melihat takkan terlihat. Ini yang terasa takkan terasa. Ini adalah yang menghidupkan takkan terkena hidup."@id .
+
+ex:verso_2 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_2_transliteration ;
+    ont:hasTranslation ex:verso_2_translation .
+
+ex:verso_2_transliteration rdf:type ont:Transliterasi ;
+    ont:value "kahurip. Tan katuduhan ku alit urang sabwana, inya lita nu maka lita, nu ngaranan alit urang sabwana, nu ngaranan urang sajagat tan keuna, dingaranan inya nu wisesa, dina alit ning tan katon kareungeu, tan kausap kahidep, inya nu maka alit ning tan katuduhhan. Pun."@su-Latn .
+
+ex:verso_2_translation rdf:type ont:Terjemahan ;
+    ont:value "Takkan tertunjukkan dengan ruh kita sedunia. Ialah yang rata dan menyebabkan rata, namanya ruh kita sedunia, yang dinamakan kita sedunia tidak kena, dinamailah Dia Yang Agung, dalam kegaiban yang tidak terlihat dan terdengar, tidak teraba dan tak terpikirkan. Dialah yang menyebabkan ruh yang tak tertunjukkan. Demikian."@id .
+
+ex:recto_3 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_3_transliteration ;
+    ont:hasTranslation ex:recto_3_translation .
+
+ex:recto_3_transliteration rdf:type ont:Transliterasi ;
+    ont:value "Ini pakeeunana dina puhun alit tunggal bayu sabda hidep. Ini na pakeeun alit ning langgeng tutur teng leng ning hidep nis ku sajnyana, pake mangkatkeun ajnyana ngaleupaskeun nyana alit sang manon. Ini suniya alit ning langgeng sang manon, terusna ti akasa, padang caang, liwat ti rahina sada, hibar caang saluar bwa"@su-Latn .
+
+ex:recto_3_translation rdf:type ont:Terjemahan ;
+    ont:value "Ini untuk diamalkan dalam pangkal ruh bersatunya bayu sabda hidep. Ini untuk diamalkan ruh dalam keabadian ajaran kedalaman hidep hilang dengan sebutan, untuk mengangkat ajnyana melepaskan nyana ruh Sang Manon. Ini kehampaan ruh dalam keabadian Sang Manon. Tembus dari angkasa, terang benderang, lewat dari panjangnya siang, bersinar terang sekekeliling dunia."@id .
+
+ex:verso_3 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_3_transliteration ;
+    ont:hasTranslation ex:verso_3_translation .
+
+ex:verso_3_transliteration rdf:type ont:Transliterasi ;
+    ont:value "na, luput beurang caang sadakala, pake alit ning jeueung di alit hidep sang manon pakeun ngahusir na jati, nyeueung bwana niskala. Ini pakeun ngahusir ambu ayah ka niskala, pake alit na nirmala, di alit leupas ning nyana, pakeun mangkat moksahkeun ajnyana, ja nu maka alit ngaleungit"@su-Latn .
+
+ex:verso_3_translation rdf:type ont:Terjemahan ;
+    ont:value "Meskipun tiada siang tetap terang terus-menerus. Untuk ruh penglihatan kepada kegaiban hidep Sang Manon untuk menuju kesejatian, melihat dunia gaib. Ini untuk mengunjungi ibu dan ayah di niskala, untuk ruh pada kesucian, pada ruh lepas dalam nyana. Untuk mengangkat kelepasan ajnyana, karena yang menyebabkan ruh menghilangkan"@id .
+
+ex:recto_4 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_4_transliteration ;
+    ont:hasTranslation ex:recto_4_translation .
+
+ex:recto_4_transliteration rdf:type ont:Transliterasi ;
+    ont:value "keun nu alit hanteu nu leungiteun alit ning ajnyana, pulang deui ka niskala, alit ning nyana, datang ka tan hana, kana desa, leng gang herang linglang, hening linglangs na bwana, cundukna nyana ka ambu ayah. Pun. Ini pakeun ngampihkeun bumi, nir na bumi ti pretiwi, na raga linglang muksah ti dunia, suniya lawan taya. Mo"@su-Latn .
+
+ex:recto_4_translation rdf:type ont:Terjemahan ;
+    ont:value "yang halus, tidak kehilangan ruh dalam ajnyana. Kembali lagi ke niskala, ruh pada nyana, datang kepada ketiadaan, kepada asalnya, bening bersih jernih, hening jernih di dunia, sampailah nyana kepada ibu dan ayah. Demikian. Ini untuk menjaga bumi, lenyapnya bumi dari pretiwi, raga yang bersih lepas dari dunia, kehampaan dengan ketiadaan."@id .
+
+ex:verso_4 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_4_transliteration ;
+    ont:hasTranslation ex:verso_4_translation .
+
+ex:verso_4_transliteration rdf:type ont:Transliterasi ;
+    ont:value "ksa hilang tanpa sangkan, mesat muksah hilang ti akasa. Alit ning pretiwi ngampihkeun pangeusi bumi. Alit ning bwana ngampihkeun raga sarira. Alit ning akasa ngampihkeun sirah tresna sari ning bwana. Pada muksahkeun pasambung niskala, pakeun nganggeuskeun tapa. Pun."@su-Latn .
+
+ex:verso_4_translation rdf:type ont:Terjemahan ;
+    ont:value "Lepas hilang tanpa sebab, melesat lepas hilang dari angkasa. Ruh pada pretiwi menjaga pengisi bumi. Ruh di dunia menjaga raga jasmani. Ruh di angkasa menjaga sirah tresna di dunia. Bersama-sama melepaskan sendi niskala, untuk menyelesaikan tapa. Demikian."@id .
+
+ex:recto_5 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_5_transliteration ;
+    ont:hasTranslation ex:recto_5_translation .
+
+ex:recto_5_transliteration rdf:type ont:Transliterasi ;
+    ont:value "Ini pakeun bener, pake alit ning nyana, nu maka waya na rasa, angenangen nu metukeun bayu sabda hidep deungeun nu nyeueung ngareungeu, pake alit nu alit dina ajnyana, nu luput balik ti pretiwi, liwat waaspada ti dunia, suniya lawan taya, nu liwat waaspada, ti bwana leuwih, balik alit sarira sunya paramarata, biapara waaspada, nu liwa"@su-Latn .
+
+ex:recto_5_translation rdf:type ont:Terjemahan ;
+    ont:value "Ini untuk kebenaran mengamalkan ruh pada nyana. Yang menyebabkan adanya rasa, angan-angan, yang mengeluarkan bayu sabda hidep dengan yang melihat dan mendengar. Menggunakan ruh yang halus pada ajnyana, yang terlepas kembali dari pretiwi. Lewat nyata dari dunia, kehampaan dengan ketiadaan, yang lewat dari kenyataan di dunia lebih, kembali ruh jasmani hampa paramarta, selubung yang nyata, yang lewat"@id .
+
+ex:verso_5 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_5_transliteration ;
+    ont:hasTranslation ex:verso_5_translation .
+
+ex:verso_5_transliteration rdf:type ont:Transliterasi ;
+    ont:value "t ti akasa, nu leuwih ti pangeusi bumi, nu alit dina turu tanghi, di rahina lawan wengi, alit nyana nyukmana di ajnyana, nu maka bener hidep tineung angenangen. Dalit ka alit ning nyana, nu tineung alit dalit ka niskala, pakeun hamo sasab ka ambu ayah ka niskala. Pun."@su-Latn .
+
+ex:verso_5_translation rdf:type ont:Terjemahan ;
+    ont:value "dari angkasa, yang lebih dari pengisi bumi, yang halus pada tidur dan bangun, pada siang dengan malam, ruh nyana, yang menjadi ruh ajnyana, yang menyebabkan benar hidep teringat selalu pada cita-cita. Berpadu kepada ruh nyana yang diingat. Ruh bersatu dengan niskala, supaya tidak tersesat kepada ibu dan ayah kepada niskala. Demikian."@id .
+
+ex:recto_6 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_6_transliteration ;
+    ont:hasTranslation ex:recto_6_translation .
+
+ex:recto_6_transliteration rdf:type ont:Transliterasi ;
+    ont:value "alit na darma alit simpen ning ajnyana, nya mula ning sabda, sangkan prajnya, alita alit ning hidep lawan angenangen. Inya nu tan katon kareungeu. Alit ning tan katon kareungeu. Inya alit nu nyeueung hamo"@su-Latn .
+
+ex:recto_6_translation rdf:type ont:Terjemahan ;
+    ont:value "ruh darma yang disimpan pada ajnyana, ialah permulaan pada sabda, asal kepandaian. Ruh pada hidep dengan cita-cita. Dia yang tak terlihat tak terdengar. Ruh yang tak terlihat tak terdengar. Dia adalah ruh yang melihat tapi tak"@id .
+
+ex:verso_6 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_6_transliteration ;
+    ont:hasTranslation ex:verso_6_translation .
+
+ex:verso_6_transliteration rdf:type ont:Transliterasi ;
+    ont:value "kabaywan ku bayu. Inya alit na sabda hamo kasabda ku nu nyabda. Inya alit na hidep hamo kahidep ku hidep. Inya alit na rasa hamo karasa ku nu ngarasa."@su-Latn .
+
+ex:verso_6_translation rdf:type ont:Terjemahan ;
+    ont:value "terkena bayu. Dia adalah ruh pada sabda yang tak terkena sabda oleh yang bersabda. Dia adalah hidep yang tak terkena hidep oleh hidep. Dia adalah ruh pada rasa yang tak terasa oleh yang merasa."@id .
+
+ex:recto_7 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_7_transliteration ;
+    ont:hasTranslation ex:recto_7_translation .
+
+ex:recto_7_transliteration rdf:type ont:Transliterasi ;
+    ont:value "n katuduhhan, alit na nuduh tan katuduh, alit ning langgeng ajnyana, nu luput ti tato ajnyana wisesa di alit ning tanpa katuduhan. Alit ti nu alit majar ini, tan kaduhuran ku duhur, tan kasoran deneng sor, tan kena kaloran ku lor, tan kena kakidulan ku kidul, tan kena kakulonan"@su-Latn .
+
+ex:recto_7_translation rdf:type ont:Terjemahan ;
+    ont:value "tertunjukkan, ruh yang menunjuk tapi tak tertunjuk, ruh pada keabadian ajnyana, yang lepas dari tato ajnyana yang agung pada ruh yang tidak tertunjukkan ruh dari yang ruh katanya ini, tidak teratasi oleh yang tinggi, tidak terbawahi oleh yang rendah, tidak terkena utara oleh utara, tidak terkena selatan oleh selatan, tidak terkena barat"@id .
+
+ex:verso_7 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_7_transliteration ;
+    ont:hasTranslation ex:verso_7_translation .
+
+ex:verso_7_transliteration rdf:type ont:Transliterasi ;
+    ont:value "ku kulon, tan kena kawetanan ku wetan. Tan kena adoh tan kena parek. Iya nu wenang ka ganal wenang ka alit. Yata wenang hana wenang tan hana. Luput alit ti langgeng lengis ajnyana, inya ku alit jati, pandita, niskala, ajnyana. Pun."@su-Latn .
+
+ex:verso_7_translation rdf:type ont:Terjemahan ;
+    ont:value "oleh barat, tidak terkena timur oleh timur. Tidak terkena jauh tidak terkena dekat. Dialah yang wenang kasar dan wenang ruh. Dialah yang wenang ada dan wenang tiada. Terlepas ruh dari kebadian cahaya ajnyana, yaitu dengan ruh yang sejati, pandita, niskala, ajnyana. Demikian."@id .
+
+ex:recto_8 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_8_transliteration ;
+    ont:hasTranslation ex:recto_8_translation .
+
+ex:recto_8_transliteration rdf:type ont:Transliterasi ;
+    ont:value "put alit ning atos nyana, wenang tan hana, mangkatkeun ajnyana, alita sarira, ngahilangkeun raga, ngaleungitkeun pretiwi, ngahilangkeun dunia, sunya bwana, moksahkeun akasa, liwat ti katara manusa, malik sarupa alit sarira. Na awak terus herang, na rupa terus, na maya terus dewata. Heneng na"@su-Latn .
+
+ex:recto_8_translation rdf:type ont:Terjemahan ;
+    ont:value "lepas ruh pada kekerasan nyana, wenang tiada, mengangkat ajnyana, ruh pada jasmani, menghilangkan raga, menghilangkan pertiwi, menghilangkan dunia, kesunyian dunia, melepaskan angkasa, lewat dari penglihatan manusia, kembali menjadi satu rupa dengan ruh jasmani. Badan menembus beningnya rupa, bayang-bayang menembus dewata. Heningnya pakaian"@id .
+
+ex:verso_8 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_8_transliteration ;
+    ont:hasTranslation ex:verso_8_translation .
+
+ex:verso_8_transliteration rdf:type ont:Transliterasi ;
+    ont:value "lenging terusna nyana, mangkat ti bwana larang, liwat ti katara, tata, dewata, tina sorga hiyang kaleupaseun datang ka terus bwana, mulia sorang, puncak ning larang. Liwat ti inya, datang ka terus na larang mayana, herang bwana."@su-Latn .
+
+ex:verso_8_translation rdf:type ont:Terjemahan ;
+    ont:value "menembus nyana, berangkat dari bwana larang, lewat dari penglihatan, tata, dewata, dari sorga hiyang kelepasan datang menembus buana, mulia tercapai sebagai puncak kesucian. Lewat dari situ, datang menembus ke larang mayana, kebeningan buana."@id .
+
+ex:recto_9 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_9_transliteration ;
+    ont:hasTranslation ex:recto_9_translation .
+
+ex:recto_9_transliteration rdf:type ont:Transliterasi ;
+    ont:value "bwana heneng suniya keleng, dipukatkeun ku ti niskala, datang ka puncak lenggang herang na maya, heneng bwana. Liwat leupas ti inya, datang ka puncak heneng terus na ling lang bwana, luput leupas sakeng kana, liwat ti na sorga, para tata ning dewata, hiyang kaleupaseun, liwat taya, sakeng hana, teka katara, tata banua bwana niskala. Pa"@su-Latn .
+
+ex:recto_9_translation rdf:type ont:Terjemahan ;
+    ont:value "tempat tinggal di buana tetap yang sunyi terpisah, dilepaskan dari niskala. Datang ke puncak lenggang herang, yaitu bayangan heneng buana. Lewat lepas dari situ datanglah ke puncak heneng terus linglang buana. Hilang lepas dari situ, lewat dari sorga, para tata dewata, hiyang kelepasan, lewat tiada, dari situ, samapai terlihat, tata buana niskala."@id .
+
+ex:verso_9 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_9_transliteration ;
+    ont:hasTranslation ex:verso_9_translation .
+
+ex:verso_9_transliteration rdf:type ont:Transliterasi ;
+    ont:value "hi turun ti niskala, nyungsungan lalakon sang hyang hayu, subaga, nyangga sanghiyang ajnyana, hanteu tangan lampah masra, ning bwana, aci ti atma wisesa, na langgeng, na premana, asra ning nyana, atis ti sari, na rupa muliya jati, lidah na awak premana, mulia rupa, terus alus rupa jati, mulia, sari sanghiyang hayu."@su-Latn .
+
+ex:verso_9_translation rdf:type ont:Terjemahan ;
+    ont:value "Semua turun dari niskala, menyambut tingkah Sanghiyang hayu, bahagia, menopang sanghyang ajnyana, tidak menerima laku permata di buana, sari dari jiwa yang agung, yang langgeng, yang kuat, permata pada nyana, dingin dari sari, yang rupanya sungguh mulia, lidah pada badan yang kuat, mulia rupanya, terus bagus sungguh rupanya, sari ajnyana."@id .
+
+ex:recto_10 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_10_transliteration ;
+    ont:hasTranslation ex:recto_10_translation .
+
+ex:recto_10_transliteration rdf:type ont:Transliterasi ;
+    ont:value "mang maya na herang terus bwana, metu sari ruum ti sarira, tutup ruum kumaratna, ruum mahabara, saluar bwana. Jati sanurining ajnyana. Ageus ta pahayu jati sanghiyang ajnyana, ageus rasa jati palipurna, purna tisti ti niskala, jati. Nyet les mangkatkeun ajnyana, rasaning nyana, ti niskala. Pat leupas lampah nira."@su-Latn .
+
+ex:recto_10_translation rdf:type ont:Terjemahan ;
+    ont:value "Lima bayangan yang bening menembus buana, keluar sari wewangian dari jasmani, diliputi dengan wewangian kumaratna, wewangian luar biasa semerbak, seluruh buana, sungguh sarinya ajnyana. Setelah selamat kebenaran sanghyang ajnyana, setelah rasa sungguh sempurna, sempurna abadi dari niskala, sungguh. Hilanglah mengangkat ajnyana, rasa pada nyana, dari niskala."@id .
+
+ex:verso_10 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_10_transliteration ;
+    ont:hasTranslation ex:verso_10_translation .
+
+ex:verso_10_transliteration rdf:type ont:Transliterasi ;
+    ont:value "Pada wereg lampahhira niskala, ngiringaken nira rasa, ageus ti sari budi jati, suka lampah. Ta budi, lumaku budi rahayu, pada sampak suka subaga, mamarsatia jati premana, pada geulis lampahhira, tumut wastu lituhayu, legep hidep tunggal tineung, sampak sabda suka rasa, satingkah, sakarma, sageui,"@su-Latn .
+
+ex:verso_10_translation rdf:type ont:Terjemahan ;
+    ont:value "Lepaslah perjalanannya. Sama cepat perjalanannya niskala, mengiringkan rasa, selesai dari sari pekerti yang benar, suka dalam perjalanannya. Pekerti tersebut, melakukan pekerti yang selamat, sama-sama suka bahagia, sangat mendalam perasaan hatinya yang sungguh kuat, sama-sama indah kelakuannya, mengikuti wujud yang indah, menguasai hidep dengan satu pikiran, memusatkan sabda dengan suka cita, satu tingkah, satu karma, satu perasaan,"@id .
+
+ex:recto_11 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_11_transliteration ;
+    ont:hasTranslation ex:recto_11_translation .
+
+ex:recto_11_transliteration rdf:type ont:Transliterasi ;
+    ont:value "sapatingtiman, satingkah, kreta, mulia, windu ajnyana, sarua sareananna sasipat lanjaran nyana, pada ageus sumamta nyana, sarira nyana, ngawindu sanghyang hayu. Ageus hayu palipurna, pangkat nira luput leupas sakeng bwana, niskala. Pat leupas lenyep pa lampahhira. Teka mangi ning bwana. Tan"@su-Latn .
+
+ex:recto_11_translation rdf:type ont:Terjemahan ;
+    ont:value "sepertimbangan, satu tingkah, baik, mulia, pusat ajnyana, sama semuanya sejajar tiang nyana, sama-sama selesai pada kedamaian nyana, jasmani nyana, memusatkan ajnyana. Setelah selamat sempurna, kepergiannya hilang lepas dari buana, niskala. Lepaslah ia dengan pelan jalannya, datang mewangi di buana."@id .
+
+ex:verso_11 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_11_transliteration ;
+    ont:hasTranslation ex:verso_11_translation .
+
+ex:verso_11_transliteration rdf:type ont:Transliterasi ;
+    ont:value "hana huwus nikaka sang pandita. ti puhun sang pandita nyieun para nis ti dewa, nis ti dewata, nis ti kasorgaan, nis ti kahyangan, nis ti ajnyana, tina wisesa, sang pandita. Meunang tutur jati, langgeng suniya nilantara, ning ajnyana, langgeng ning bwana. Pun."@su-Latn .
+
+ex:verso_11_translation rdf:type ont:Terjemahan ;
+    ont:value "Tidak ada perkataannya kepada sang pandita. Dari awal sang pandina membuat semua yang hilang dari dewa, hilang dari dewata, hilang dari kesorgaan, hilang dari kahyangan, hilang dari ajnyana, dari keagungan sang pandita. Mendapat ajaran yang sejati, abadi sunyi terus-menerus pada ajnyana, abadi di buana. Demikian."@id .
+
+ex:recto_12 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_12_transliteration ;
+    ont:hasTranslation ex:recto_12_translation .
+
+ex:recto_12_transliteration rdf:type ont:Transliterasi ;
+    ont:value "wenang luput ti puhun wenang metukeun wisesa, ngahilangkeun ajnyana, wenang ning mala, sidi leupas mokta hilang tanpa sangkan sang pandita, awor jatina, ka niskala, alit dalit di tan hana, sang pandita, nu luput ti tan hana, wenang tan hana, ja sawuit di mula, ning dadi tan hana. Inya tu sinangguh caduk"@su-Latn .
+
+ex:recto_12_translation rdf:type ont:Terjemahan ;
+    ont:value "wenang lepas dari pokok, wenang mengeluarkan keagungan, menghilangkan ajnyana, wenang pada kotor. Sempurna lepas bebas hilang tanpa sebab. Sang pandita bersatu jati-nya kepada niskala, ruh bersatu dalam ketiadaan. Sang pandita yang hilang pada ketiadaan, wenang tiada, karena satu pokok dari asal, pada kejadian ketiadaan. Yaitu yang dikira isi"@id .
+
+ex:verso_12 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_12_transliteration ;
+    ont:hasTranslation ex:verso_12_translation .
+
+ex:verso_12_transliteration rdf:type ont:Transliterasi ;
+    ont:value "siya utama, dayeuhan di puncak nagara, asra na heneng, pahi ngamuliakeunna nyana, nu pakeun inya wangsana. wangsana Sri lenggang maya, terusna herang, asra na bwana, palangkana, asra ni herang, maya na heneng bwana, palungguhanana tumpak di madiya puncak asra terus ning herang, lumarap na awak kadi rupa na maya, ning ajnyana, misu"@su-Latn .
+
+ex:verso_12_translation rdf:type ont:Terjemahan ;
+    ont:value "dia yang utama, tinggal di puncak negara, permatanya sabar, semua memuliakan nyana, yang untuk keturunanannya, sri lenggang maya tembus bening, permata di buana, tempat duduknya permata bening, bayangannya dian di buana, tempat duduknya bertingkat di tengah puncak, permata tembus bening, dipakai pada badan seperti rupanya bayangan pada ajnyana."@id .
+
+ex:recto_13 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_13_transliteration ;
+    ont:hasTranslation ex:recto_13_translation .
+
+ex:recto_13_transliteration rdf:type ont:Transliterasi ;
+    ont:value "daan pasra maya, terus na herang bwana. Di hulu niru bwana, puncakna niru akasa, muncar caang sabwana, metu na sembawa jati. Mijil teja, dilah ning bwana, seda, jati na wangsana, herang heneng sadakala, pun ageus pahi legep sangkep miguna, na wangsana, pahi siya nu arageung, pahi siya matang desa, nu nangganan paracita, nu wi"@su-Latn .
+
+ex:recto_13_translation rdf:type ont:Terjemahan ;
+    ont:value "Mengurangi permata bayangan tembus bening di buana. Di hulu meniru buana, di puncaknya meniru angkasa, bersinar terang sebuana, keluarlah kesaktian yang sejati. Keluar cahaya, sinar di buana, sempurna, sejatinya keturunannya. Bening diam terus-menerus. Demikian. Selesai semua terkuasai lengkap kepandaiannya, pada keturunannya, semua, dia para pembesar, semua, dia matang desa, nu nangganan, paracita, yang"@id .
+
+ex:verso_13 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_13_transliteration ;
+    ont:hasTranslation ex:verso_13_translation .
+
+ex:verso_13_transliteration rdf:type ont:Transliterasi ;
+    ont:value "sesa, siya deung parasorga, kaparekkan na dewata, tina sorga hiyang kapesatan dewata, wisesa, dina sorga kapesatan, kapesatan ti manusa, ditapa ngabiapara, nu siya mangun hayu, ngahusir sorga ning darma, sanghyang atma wisesa. Hanteu mungkur ti windu rahayu, hanteu liwat ti na kasor"@su-Latn .
+
+ex:verso_13_translation rdf:type ont:Terjemahan ;
+    ont:value "agung, dia dan parasorga, kedekatan pada dewata, dari sorga hiyang, kelepasan dewata agung, pada sorga kelepasan, kelepasan dari manusia, bertapa dalam usaha, yang mulia membangun kebaikan, menuju sorga dalam darma, Sanghyang Atma Wisesa. Tidak pergi dari gerbang keselamatan, tidak lewat dari kesorgaan"@id .
+
+ex:recto_14 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_14_transliteration ;
+    ont:hasTranslation ex:recto_14_translation .
+
+ex:recto_14_transliteration rdf:type ont:Transliterasi ;
+    ont:value "gaan dewata. Dewa manusa, kawisesa, ku dewata. Dewata jati niskala, nu siya ngawindu bumi, katurahan na ajnyana, mahawisesa, dayeuhan di buana, ngageulangngan cunduk para sorga. Hanteu nu liwat ti inya, nu siya manggawe tapa. Hanteu luput ti sakitu, nu siya ngawindu, mangun rahayu,"@su-Latn .
+
+ex:recto_14_translation rdf:type ont:Terjemahan ;
+    ont:value "dewata. Dewa manusia terkuasai oleh dewata. Dewata jatiniskala yang mulia memusatkan bumi, kelebihan pada ajnyana, mahaagung, tempat di buana, menerangi kedatangan para sorga. Bukan yang lewat dari situ, yang mulia melakukan tapa. Tidak lepas dari itu, yang mulia memusatkan menciptakan keselamatan,"@id .
+
+ex:verso_14 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_14_transliteration ;
+    ont:hasTranslation ex:verso_14_translation .
+
+ex:verso_14_transliteration rdf:type ont:Transliterasi ;
+    ont:value "samilang sanghyang atma, dipajar wenang, wisesa, hanteu liwat ti tata, hiyang dewata, ti na sorga kahiyangngan. Hegan saurang, liwat ti na kapesatan ti na seda, para tata, ning dewata, liwat ti na kasorgaan leuwih ti na para aci, liwat ti na paracita, munggah ti niskala, sadatang"@su-Latn .
+
+ex:verso_14_translation rdf:type ont:Terjemahan ;
+    ont:value "memperhitungkan sanghyang atma, dikatakan wenang, agung, tidak lewat dari tata hiyang dewata, dari sorga kahiyangan. Hanya seorang, lewat dari kelepasan yang sakti, para tata dewata lewat dari kesorgaan, lebih dari para aci, lewat dari para cita, naik dari niskala, sesampainya kepada"@id .
+
+ex:recto_15 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_15_transliteration ;
+    ont:hasTranslation ex:recto_15_translation .
+
+ex:recto_15_transliteration rdf:type ont:Transliterasi ;
+    ont:value "ka nu wisesa. Nu wisesa tuluy miwarang, lampah ka para geulangan pahi ka nusiya, arageung, ka nusiya, matanggeulangan pahi cunduk mingpulung, dayeuhan di cita nagara, asra, sanghyang wisesa, dayeuhan di cita, geulang nagara asra bwana, dayeuhan di puncak nagara asra na heneng, dayeuhan di cita, mayana, asra ning herang, dayeuha"@su-Latn .
+
+ex:recto_15_translation rdf:type ont:Terjemahan ;
+    ont:value "yang agung. Yang agung kemudian memerintah melakukan kepada para geulangan, semua yang mulia, pembesar, kepada yang mulia, bersambungan semua datang berkumpul, bertempat di cita nagara. Permata agung, bertempat di cita gelang negara, permata buana, bertempat di puncak negara, permatanya diam, bertempat di cita bayangannya, permata yang bening, bertempat"@id .
+
+ex:verso_15 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_15_transliteration ;
+    ont:hasTranslation ex:verso_15_translation .
+
+ex:verso_15_transliteration rdf:type ont:Transliterasi ;
+    ont:value "n di cita, nagara asra na heneng, pahi sampak tunggal kreta, ajnyana, dayeuhan di puncak lenggang nagara asra wisesa, pahi sang kumpul nu mahayu, pahi kumpul nu mingpulung, ka kadaton nu wisesa, kadaton sri margawindu bwana, na natar, carenang herang, kadi asra omas misah kasilang asra hare"@su-Latn .
+
+ex:verso_15_translation rdf:type ont:Terjemahan ;
+    ont:value "n di cita negara, permatanya diam. Semua berada bersatu dalam kebenaran sanghyang ajnyana, bertempat di puncak lenggang nagara permata yang agung, semua berkumpul melindungi, semua berkumpul yang mengumpulkan, ke kedatuan yang agung, kedatuan Sri Margawindu buana, yang terhampar bening berkilauan, seperti permata emas terpisah bersilangan permata"@id .
+
+ex:recto_16 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_16_transliteration ;
+    ont:hasTranslation ex:recto_16_translation .
+
+ex:recto_16_transliteration rdf:type ont:Transliterasi ;
+    ont:value "mas buruan terus bwana, hibar natar saluarna, maya na heneng bwana, herang palangka, asraning maya, palungguhhan jati heneng, na sadaan asra maya, herang na lingga teja bwana, dipuncakkan ku dewata, saratna seda premana, alingalingan ajnyana, sakitu pang diguna panglungguhhan nu wisesa, ageus kumpul nu ming"@su-Latn .
+
+ex:recto_16_translation rdf:type ont:Terjemahan ;
+    ont:value "emas, semburat tembus buana, bercahaya terhampar sekelilingnya. Bayangan pada diamnya buana, bening tahtanya, permatanya bayangan, kedudukan jati heneng, pada keajegan permata bayangan, bening pada lingga cahaya buana, dipuncaki oleh dewata, seluruhnya sempurna berdaulat, bersembunyi pada ajnyana. Demikian yang dijadikan kedudukan yang berkuasa, setelah berkumpul yang mengumpulkan,"@id .
+
+ex:verso_16 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_16_transliteration ;
+    ont:hasTranslation ex:verso_16_translation .
+
+ex:verso_16_transliteration rdf:type ont:Transliterasi ;
+    ont:value "pulung, pa pahi siya wisesa, pahi sia, matang desa, ngageulangngan para cita, sahur nu wisesa, mana ing dek kumpul mipulung aing dek maan ahuman ka nu siya arageung, nu wisesa, samodana, nyanggatakeun na ajnyana, sugan maka susah, ti kahannan nu maka kami modana, ka nu siya arageung, pun ku sabda ing"@su-Latn .
+
+ex:verso_16_translation rdf:type ont:Terjemahan ;
+    ont:value "semua dia berkuasa, semua dia matang desa, melingkari para cita. Kata yang berkuasa, Adapun aku akan menyuruh mengumpulkan, aku akan membawa pertemuan kepada yang mulia para pembesar, yang berkuasa, ramah, bersama-sama dengan ajnyana. Barangkali menjadi susah dari keadaan, yang menyebabkan kami gembira, kepada yang mulia pembesar. Demikian."@id .
+
+ex:recto_17 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_17_transliteration ;
+    ont:hasTranslation ex:recto_17_translation .
+
+ex:recto_17_transliteration rdf:type ont:Transliterasi ;
+    ont:value "ayeuna ini, kami palalun menta, ingunggeunna kapunggungan bireungeuh na kapindingan nu maka kami menta, diiyatnakeun ku na kahiwanghiwangngan nyana, sabda ing ayeuna ini, jaga dapet na lurusan belot benerkeun kurang tembeyan lamunna lain balikeun lamunna salah pagahhan kami pun nu ma"@su-Latn .
+
+ex:recto_17_translation rdf:type ont:Terjemahan ;
+    ont:value "Dengan sabdaku ini, kami meminta maaf, kebodohan yang dipelihara, melihat yang terhalangi, yang menjadikan kami meminta diwaspadai dengan kehawatiran nyana. Sabdaku sekarang ini, jagalah dengan sungguh-sungguh kelurusan. Kalau bengkok betulkan, kalau kurang tambahi, kalau bukan balikkan, kalau salah nasihati kami. Demikian. Yang menyebabkan"@id .
+
+ex:verso_17 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_17_transliteration ;
+    ont:hasTranslation ex:verso_17_translation .
+
+ex:verso_17_transliteration rdf:type ont:Transliterasi ;
+    ont:value "ka kami, maan diheueum katitisan sowara, tirta ajnyana, ti madiya ning nyana, ngupadesa nyana, sabda wisesa, ka nu siya arageung, pa pahi wenang wisesa, sugana ka ngaduluran na rahayu, ka nu siya premana, larang ning nyana, ngajajakeun kana jati, titis sowara pata, ti madiya, pahi ngeusian kreta, premana, utama, mu"@su-Latn .
+
+ex:verso_17_translation rdf:type ont:Terjemahan ;
+    ont:value "kami membawa dihadap titisan suara, tirta ajnyana, pertengahan nyana, ajaran nyana, sabda yang agung, kepada yang mulia pembesar, semua wenang berkuasa. Barangkali yang menyertai keselamatan, kepada yang mulia berdaulat, kesucian nyana, menjelajah kepada jati, menitis suara turun dari tengah, semua mengisi kebaikan, daulat, utama, mulia"@id .
+
+ex:recto_18 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_18_transliteration ;
+    ont:hasTranslation ex:recto_18_translation .
+
+ex:recto_18_transliteration rdf:type ont:Transliterasi ;
+    ont:value "lia windu, sanghiyang hayu, pahi mijilkeun pangasih jati, premana, windu ning ajnyana pahi siya tumitis tunggal puluh, nu siya matangdesa, papahi wenang wisesa, sakitu nu maka kami modana, ka nu siya para wenang, pun. Sumahur dayeuhan di asri na cita, nagara asra wisesa, tunggal kreta sampak samadaya, ka nu"@su-Latn .
+
+ex:recto_18_translation rdf:type ont:Terjemahan ;
+    ont:value "windu, sanghiyang hayu, semua mengeluarkan pengasih jati, daulat, pusatnya ajnyana, semua menitis tunggal puluh, yang mulia matangdesa, semua wenang berkuasa. Itulah yang menyebabkan kami gembira, kepada yang mulia para penguasa. Demikian. Menceritakan tempat keasrian cita, negeri permata yang agung, tunggal baik, bersedia semua kepada yang"@id .
+
+ex:verso_18 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_18_transliteration ;
+    ont:hasTranslation ex:verso_18_translation .
+
+ex:verso_18_transliteration rdf:type ont:Transliterasi ;
+    ont:value "siya arageung, nema ajnyana, ka nu siya wisesa, narema sabda utama, pupn. Lamun kitu sanghyang sahur, titis sowara pata, kreta sanghyang ajnyana, ti madiya, hayang kawereg tineung tuang hidep kadulu kasukung kawangun kretasubaga paramarata, satia, pawitra windu sanghyang ajnyana, sakitu nu maka kami hulu"@su-Latn .
+
+ex:verso_18_translation rdf:type ont:Terjemahan ;
+    ont:value "mulia pembesar, menerima ajnyana, kepada yang mulia berkuasa, menerima sabda utama. Demikian. Kalau begitu sanghyang sahur, menitis suara ke bawah, kebenaran sanghyang ajnyana, dari tengah, ingin mengendalikan pikiran hidep kamu, terlihat, terdukung, terbangun, baik, bahagia, benar, setia, suci, pusat sanghyang ajnyana."@id .
+
+ex:recto_19 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_19_transliteration ;
+    ont:hasTranslation ex:recto_19_translation .
+
+ex:recto_19_transliteration rdf:type ont:Transliterasi ;
+    ont:value "n mungku kami salah rasa, meunang aing nyukayan ajnyana, titis sowara pata, ti madiya ngan tu kami hulun lamun kaaku kahaup ngawindukeun sanghyang hayu, paksa tunggal kreta, ti nu wisesa, pun. Ngajajadikeun na jati, sahur nu wisesa, mana aing maan sampak kreta, kana urang sajagat kena sanghyang sahur sa"@su-Latn .
+
+ex:recto_19_translation rdf:type ont:Terjemahan ;
+    ont:value "Itulah yang menyebabkan kami berhamba tidak akan salah rasa, dapat membayar ajnyana, menitis suara ke bawah dari tengah. Hanya itulah yang kami jadikan pengabdian kalau diakui, diperhatikan, memusatkan ajnyana, pengertian tunggal yang baik, dari yang berkuasa. Demikian. Menjadikannya jati, kata yang berkuasa, Yang menyebabkan aku menyediakan kebaikan, kepada manusia sejagat, karena sanghyang sahur sekarang ."@id .
+
+ex:verso_19 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_19_transliteration ;
+    ont:hasTranslation ex:verso_19_translation .
+
+ex:verso_19_transliteration rdf:type ont:Transliterasi ;
+    ont:value "kini, mana nyalar ka nu rea, pilancaneun aing sampak tunggala kreta, ka nu wisesa, sahur dayeuhan di cita, lenggang nagara asra bwana, puna. Kami hulun sangkup ngawindu sanghyang hayu, sampak suka kreta, samadaya, hanteu nu katitenan nyana suka ngadulur ajnyana, tunggal ka nu wisesa, ngawin"@su-Latn .
+
+ex:verso_19_translation rdf:type ont:Terjemahan ;
+    ont:value "Yang menyebabkan aku menyebarkan pada orang banyak, untuk lawan aku bersenang-senang, bersedia tunggal baik kepada yang berkuasa, kata penduduk dalam cita, lenggang negeri permata buana. Demikian. Kami hamba yang sanggup memusatkan ajnyana, bersedia, suka, baik, semuanya bukan yang terawasi nyana, suka menyertai ajnyana, tunggal yang terkuasai, memusatkan"@id .
+
+ex:recto_20 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_20_transliteration ;
+    ont:hasTranslation ex:recto_20_translation .
+
+ex:recto_20_transliteration rdf:type ont:Transliterasi ;
+    ont:value "dukeun sanghyang hayu. suka, Sahur nu wisesa Lamun ageus wereg legep sangkepa sampak tunggal samadaya, ageus sangkup kumpul nu mingpulung, pa pahi wenang wisesa, pahi siya, matang desa, nu siya pahi arageung, ka kadaton nu wisesa, na kadaton si raga heneng, windu na wangun mulia sabwana, na bumi terusna heneng herang"@su-Latn .
+
+ex:recto_20_translation rdf:type ont:Terjemahan ;
+    ont:value "ajnyana. Ujar yang kuasa,Kalau sudah terkendali terkuasai lengkap tersedia bersatu semuanya, telah sanggup berkumpul yang mengumpulkan, semua wenang berkuasa, kamu semua matang desa, yang mulia semua pembesar, kepada kedatuan yang kuasa, yaitu kedatuan si raga heneng, pusatnya membangun kemuliaan sebuana."@id .
+
+ex:verso_20 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_20_transliteration ;
+    ont:hasTranslation ex:verso_20_translation .
+
+ex:verso_20_transliteration rdf:type ont:Transliterasi ;
+    ont:value "lenggang na maya, kadi asra ning akasa, na natar carenang herang, kadi asra homas mirah lumarap, kadi asra ning haremas buruan terus bwana, hibar natar saluarna, maya na heneng bwana, herang na palaka, asra ning maya, palungguhan jati heneng, na sadaan asra maya, herang lilang, teja bwana, dipuncakan ku dewata, saratna"@su-Latn .
+
+ex:verso_20_translation rdf:type ont:Terjemahan ;
+    ont:value "Bumi pun tembus pada diam yang bening, lenggang bayangannya, seperti permata di angkasa, yang terhampar bening berkilauan, seperti permata, emas, mirah, yang dipakai, seperti permata pada emas, halaman tembus ke buana, bercahaya terhampar sekelilingnya, bayangannya pada kediaman buana, beningnya tahta, permatanya bayangan, kedudukan jati heneng, yaitu keajegan permata bayangan, bening cerah cahaya buana, dipuncaki oleh dewata, seluruhnya"@id .
+
+ex:recto_21 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_21_transliteration ;
+    ont:hasTranslation ex:recto_21_translation .
+
+ex:recto_21_transliteration rdf:type ont:Transliterasi ;
+    ont:value "seda premana, alingalingngan ajnyana, sakitu pang diguna, na panglungguhhan nu wisesa ageus kumpul nu mingpulung, pahi siya wenang wisesa, sahur nu wisesa, ngan tu lamun ageus sangkup sampak paksa, tunggal pun. Nema sabda nu wisesa, dayeuhhan di cita raga rasa wisesa, pun. nu Ageus sangkup kumpul"@su-Latn .
+
+ex:recto_21_translation rdf:type ont:Terjemahan ;
+    ont:value "sempurna berdaulat, bersembunyi pada ajnyana. Demikian yang dijadikan kedudukan yang berkuasa, setelah berkumpul yang mengumpulkan, semua dia berkuasa. Kata yang berkuasa,hanya itu kalau sudah sanggup bersedia, pengertian yang satu, demikian. Menerima sabda yang kuasa, bertempat pada cita raga rasa yang agung. Demikian. Setelah sanggup berkumpul yang mengumpulkan,"@id .
+
+ex:verso_21 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_21_transliteration ;
+    ont:hasTranslation ex:verso_21_translation .
+
+ex:verso_21_transliteration rdf:type ont:Transliterasi ;
+    ont:value "mingpulung, ngawindukeun sanghyang hayu, ngutamakeun sanghyang ajnyana, ngan tu sugan kalawasan geuing di luar, sugan hanteu katitineungkeun ku urang pun. Geura pangkatkeun inya na nyana, pun. Munggahkeun inya wangsa na pahi teuluan nu nungguan na kahanan ti manusa, puji mangkatkeun sanghyang atma na nyana aci wisesa, pangka"@su-Latn .
+
+ex:verso_21_translation rdf:type ont:Terjemahan ;
+    ont:value "memusatkan ajnyana, mengutamakan sanghyang ajnyana. Hanya itu barangkali terlalu lama bertingkah di luar. Brangkali tidak teringatkan oleh kita, demikian. Segera berangkatkan dia pada nyana, demikian. Naikkan dia keturunannya semua tiga orang yang menunggu pada keaadan manusia, pujian mengangkat sanghyang atma, yaitu aci wisesa, berangkat"@id .
+
+ex:recto_22 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_22_transliteration ;
+    ont:hasTranslation ex:recto_22_translation .
+
+ex:recto_22_transliteration rdf:type ont:Transliterasi ;
+    ont:value "t ti bwana, jati suda, datang ka bwana niskala, munggah ka bwana, jati tan hana. Sahur nu wisesa, eboh keh bresih sarira, jati, awak sanghyang ajnyana, na atma aci wisesa, ageus aci rupa jati, ajum alus atis luis duga herang mara maratasan rupa jati heneng lenggik kasep langge hajeng pantes lituhayu,"@su-Latn .
+
+ex:recto_22_translation rdf:type ont:Terjemahan ;
+    ont:value "dari buana, jati suda, datang ke buana niskala, naik ke buana jati tan hana. Ujar yang berkuasa,Ayolah bersihkan badan sejati, badan yang berkuasa. Ayolah bersihkan badan sejati, badan sanghyang ajnyana. Pada jiwa aci wisesa, setelah aci rupa jati, sabar, bagus, sejuk, rapih, jujur, bening, lemah lembut, menyelesaikan rupa jati heneng, ramping, tampan, semampai, cantik, pantas, indah,"@id .
+
+ex:verso_22 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_22_transliteration ;
+    ont:hasTranslation ex:verso_22_translation .
+
+ex:verso_22_transliteration rdf:type ont:Transliterasi ;
+    ont:value "terus rupa, na maya jati premana, na busana, terus herang na maya asra bwana, sabuk na buka hantara, heusian asra haremas dipakanan pacar cina, di sisina, pacar keling, di tengah na reka, asra dewata, terus alus heneng tungtung, rabuna herang sagala, disilang ku kekembangan carenang heuleut heuleutna, siang kembang"@su-Latn .
+
+ex:verso_22_translation rdf:type ont:Terjemahan ;
+    ont:value "tembus rupanya pada bayangan sejati berwibawa, pada busana tembus bening pada bayangan permata buana, sabuknya bukahantara, berisi permata, emas, diikat dengan pacarcina, dipinggiran pacarkeling, di tengah direka-reka dengan permata dewata, tembus bagusnya sampai ke ujung kediaman. Benangnya semua bening diselingi dengan bunga-bungaan, berkilauan antaranya, bermekaran bunga"@id .
+
+ex:recto_23 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_23_transliteration ;
+    ont:hasTranslation ex:recto_23_translation .
+
+ex:recto_23_transliteration rdf:type ont:Transliterasi ;
+    ont:value "masa larang, lita na busana, sapangadeg samatare, pakeun madegkeun ajnyana. Ini na pisalibut terusa ibun cipruk alus di tungtungna kuwungkuwung, misisina teja hening, di tengahna teja warna. Hurung, herang, caang siang hibar reujijeung sembawa, lita pangwindu sanghyang hayu, lita guna, cita maya cihna nyambungngan pi wangsana,"@su-Latn .
+
+ex:recto_23_translation rdf:type ont:Terjemahan ;
+    ont:value "masalarang, rapih pakaiannya, pakaian selengkapnya, untuk menegakkan ajnyana. Ini yang memakai selendang embun basah bagus di ujungnya kuwung-kuwung, di pinggirnya tejahening, di tengahnya tejawarna. Gemerlapan, bening, terang benderang bersinar dengan keagungannya. Rapih pemusatan sangyang hayu, rapih dalam kepandaian, cita bayangan tanda, menyumbangbahan busana."@id .
+
+ex:verso_23 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_23_transliteration ;
+    ont:hasTranslation ex:verso_23_translation .
+
+ex:verso_23_transliteration rdf:type ont:Transliterasi ;
+    ont:value "ageus busanaeun. Pake tumpak di lungguh wastu windu sanghyang hayu, lidah pawitra premana, mulia sanghyang ajnyana, na atma aci wisesa, ditumpakeun kana wangsana, pahi deung na rabi kasihhan paminihhan ti niskala, nu nugaan na kahanan masa siya ti manusa, nu mangku sanghyang hayu, mangkatkeun"@su-Latn .
+
+ex:verso_23_translation rdf:type ont:Terjemahan ;
+    ont:value "Untuk dipakai duduk di singgasana, setelah duduk benar memusatkan ajnyana, lidah suci yang berwibawa, mulia sanghyang ajnyana, pada jiwa yang agung, dinaikkan pada singgasana, semua dengan istri yang diberikan sebagai bibit dari niskala, yang sungguh-sungguh pada tempat waktu dia menjadi manusia, yang memegang ajnyana, mengangkat"@id .
+
+ex:recto_24 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_24_transliteration ;
+    ont:hasTranslation ex:recto_24_translation .
+
+ex:recto_24_transliteration rdf:type ont:Transliterasi ;
+    ont:value "sanghyang ajnyana, reungeu dipicahakeun. Sadatang pulang ka tangkal sacunduk datang ka puhun pahi ageus tumpak wangsana, wangsana sri lenggang maya, trerus na herang asra bwana, palangka asra ning herang, na maya na heneng bwana, na palungguhan tumpak di puncak madia, asra terus ning herang, awak luma"@su-Latn .
+
+ex:recto_24_translation rdf:type ont:Terjemahan ;
+    ont:value "sanghyang ajnyana, pendengaran dijadikan keinginan. Sesampainya ke batang asal setibanya ke pohon asal, semua sudah duduk pada singgasana, singgasana sri lenggang maya, tembus bagai beningnya permata buana, tempat duduk permata yang bening, bayangannya diam di buana, tempat kedudukan dinaikkan ke puncak tengah, permata tembus beningnya, badan"@id .
+
+ex:verso_24 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_24_transliteration ;
+    ont:hasTranslation ex:verso_24_translation .
+
+ex:verso_24_transliteration rdf:type ont:Transliterasi ;
+    ont:value "rap kadi na maya ajnyana na sadaan, asra maya terus na herang bwana, ti hulu ningru bwana, puncakna niru akasa, muncar caang sabwana, metu sembawa jati, mijil teja dilah nyana ning bwana, suda jati na wangsana, herang heneng nilantara, ning bwana, na wangsana. Tapihna asra ning omas silangna, pamapan asra haremas carenang"@su-Latn .
+
+ex:verso_24_translation rdf:type ont:Terjemahan ;
+    ont:value "berkilauan seperti bayangan ajnyana yang terus menerus, permatanya tembus bening ke buana, pangkalnya meniru buana, puncaknya meniru angkasa, memancar terang sebuana, keluar kesaktian sejati, keluar cahaya terang nyana di buana, suci sejatinya singgasana, bening diam selamanya, pada buana pada singgasana. Kainnya permata diselingi emas, berlatar permata emas berkilauan"@id .
+
+ex:recto_25 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_25_transliteration ;
+    ont:hasTranslation ex:recto_25_translation .
+
+ex:recto_25_transliteration rdf:type ont:Transliterasi ;
+    ont:value "herang tapihna hibar, reungeu deung sembawa, ti pinggirna dikikitir cakramanik diselang asrana mirah, ti hareupeunna kikiceup premata, asra mas mirah, ti tukangeun tali laya, dikembangan asraning omas, puncakna asra mirah, rarawisna mirah manik, diselang ku kembang acung, bunga tunjung diruruntuy, heneng tungtung, leutik kabeunang"@su-Latn .
+
+ex:recto_25_translation rdf:type ont:Terjemahan ;
+    ont:value "bening, kainnya bercahaya, pendengaran dan kesaktian, di pinggirnya bertatahkan cakramanik, diselingi permata mirah, di depannya permata berkedip-kedip, permata emas mirah, di belakangya talilaya, diberi bunga dari permata emas, berpuncak permata mirah, rumbai-rumbainya mirah manikam, diselingi bunga acung, bunga tunjung dirangakaikan, diam di ujungnya, kecil hasil"@id .
+
+ex:verso_25 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_25_transliteration ;
+    ont:hasTranslation ex:verso_25_translation .
+
+ex:verso_25_transliteration rdf:type ont:Transliterasi ;
+    ont:value "ngaringgit, na kembang windu larangan, na kembang carenang herang, kadi mamaya omas pindah, na sembawa herang warna, bijil heneng ti puhunna, lumalarap bitan kilat, bijil sembawa tina windu, panglungguhan metu ti sanghyang hayu, bijilna tina ajnyana, pahi bijil na sembawa, sembawa jati sarira, biyaktalit"@su-Latn .
+
+ex:verso_25_translation rdf:type ont:Terjemahan ;
+    ont:value "merangkaikan, ialah bunga windu larangan, yaitu bunga yang bening berkilauan, seperti bayangan emas pindah, berwibawa bening warnanya, keluar diam dari pangkalnya, berkilauan bagai kilat, keluar kesaktian dari pusat kedudukan, keluar dari ajnyana, keluarnya dari ajnyana, semua keluar kesaktian, kesaktian sejati pada jasmani, kenyataan ruh pada nyana,"@id .
+
+ex:recto_26 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_26_transliteration ;
+    ont:hasTranslation ex:recto_26_translation .
+
+ex:recto_26_transliteration rdf:type ont:Transliterasi ;
+    ont:value "ning nyana, nu maka windu sarira. Ageus genep legep sangkep na sangkuan pitung surung, na sangkuan asra mirah sagala, papakeun ngadulur sanghyang hayu, pakeun ngawindukeun dina puhun, pahi nu siya arageung, papahi wenang wisesa. Sahur nu wisesa, eboh onam urang mangkat maka pahi paksa tunggal, tatabeuhan pahi ageu"@su-Latn .
+
+ex:recto_26_translation rdf:type ont:Terjemahan ;
+    ont:value "yang menjadikan pusat jasmani. Setelah genap dan lengkap, pada wadah tujuh panggung, pada wadah permata mirah segala, untuk menyertai ajnyana, untuk memusatkan pada pangkal, semua yang mulia pembesar, semua yang wenang berkuasa. Ujar yang berkuasa,Marilah kita berangkat, semua menjadi tujuan yang tunggal, bunyi-bunyian semua sudah"@id .
+
+ex:verso_26 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_26_transliteration ;
+    ont:hasTranslation ex:verso_26_translation .
+
+ex:verso_26_transliteration rdf:type ont:Transliterasi ;
+    ont:value "s kasangkepan, raga sarira herang heneng, asra na omas mirah, goong ku herang heneng, asra na tambaga sukla, aduan deung omas pirak, dipapon galuga haretal, asra haremas siang, tumpak na carenang herang heuleutheuleutna, tatabeuhan pakeun ngawereg, na sangkuan lita goong, gangsa tunggal sarampasan,"@su-Latn .
+
+ex:verso_26_translation rdf:type ont:Terjemahan ;
+    ont:value "lengkap, badan jasmani sudah bening, permata dan emas mirah, gongnya sudah mengkilat, permata tembaga mengkilat, dipadu dengan emas dan perak, diwarnai dengan galuga dan haretal, permata benang emas bersinar, bersusun bening berkilauan berselang-seling, tetabuhan untuk penyemangat, gong pada wadahnya yang rata, gamelan tunggal satu pasang"@id .
+
+ex:recto_27 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_27_transliteration ;
+    ont:hasTranslation ex:recto_27_translation .
+
+ex:recto_27_transliteration rdf:type ont:Transliterasi ;
+    ont:value "panyambungngan nu wisesa, lebuhkeuneun dina puhun, pakeun ngawereg wangsana, micahakeun di madiya, lamun nu cunduk ka puhun. Sahur nu wisesa eboh onam urang mangkat, bray carenang herang, na panyawer ka manggungnging na wangsana, na panyawer asra mirah deung haremas, nu nyawer sarua keupac hanteu pegatna,"@su-Latn .
+
+ex:recto_27_translation rdf:type ont:Terjemahan ;
+    ont:value "pemberian yang kuasa, untuk dimasukkan kedalam pangkal, untuk peneguh singgasana, menjadikan keinginan di dunia, kalau sudah sampai ke pangkal. Ujar yang berkuasa,marilah kita berangkat Bersinar bening berkilauan. Ditaburkan ke atas singgasana, taburannya permata mirah dan emas, yang menaburkan sama-sama berlenggang tiada putusnya,"@id .
+
+ex:verso_27 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_27_transliteration ;
+    ont:hasTranslation ex:verso_27_translation .
+
+ex:verso_27_transliteration rdf:type ont:Transliterasi ;
+    ont:value "sapanjang jalan leumpangna wangsana, na panyawer carenang herang ninggangna, kaburaan ngampar herang, carenang heuleutheuleutna, buruan terus na heneng tatapakan asra, na mirah herang lenggang sagala, tunggul bungbang kiri kanan, asra eunteung mirah hinten, kingkila leumpang ti heula, herang na payung niru kancana, hateupna asra"@su-Latn .
+
+ex:verso_27_translation rdf:type ont:Terjemahan ;
+    ont:value "berjalanlah singgasananya sepanjang jalan, taburannya jatuh bening berkilauan, tersembur menghampar bening, berkialuan berselang-seling, halaman tembus pada kediaman, tiang batu permata mirah, bening berlenggang semua, tunggul bersih kiri kanan, permata cermin mirah intan, pertanda berjalan di depan, bening payungnya seperti kencana, tutupnya permata"@id .
+
+ex:recto_28 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_28_transliteration ;
+    ont:hasTranslation ex:recto_28_translation .
+
+ex:recto_28_transliteration rdf:type ont:Transliterasi ;
+    ont:value "acimaya, herang na mirah sagala, pamapan asra haremas herang kuning suci heneng, herang puncakna pasiaman, salinar ma maya asraning sutra, dipapon omas haremas herang cenang, lumarap kadi helar teka ngora. Brenang gangsa ditabeuh pandeuri, gangsa tuluy digenggangkeun, kingkila ma"@su-Latn .
+
+ex:recto_28_translation rdf:type ont:Terjemahan ;
+    ont:value "acimaya, bening mirah semuanya, berlatar permata emas, bening kuning suci diam, bening puncaknya pasiaman, bersinar bayangan permata sutra, diikat dengan benang emas bening berkilauan, berkilauan seperti sayap muda. Gamelan ramai ditabuh di belakang, gamelan terus ditabuh, pertanda berangkat"@id .
+
+ex:verso_28 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_28_transliteration ;
+    ont:hasTranslation ex:verso_28_translation .
+
+ex:verso_28_transliteration rdf:type ont:Transliterasi ;
+    ont:value "ngkat ti kadaton nu wisesa, goong narema sorana gangsa, goong dipipanepuh labung barung, jeung nabeuh babaanan babatakan, turut laun dirindukeun, nu mulang numpang sorangan, hanteu nu angling anglingan, ngaran babatakanana, ageus kasih pulang geulis, haat kami saja"@su-Latn .
+
+ex:verso_28_translation rdf:type ont:Terjemahan ;
+    ont:value "dari kedatuan yang agung, gong bersahutan dengan suara gamelan, gong ditabuh bersamaan dengan menabuh baananan dan babatakan, ditabuh sambil berjalan pelan-pelan, yang pulang menumpang sendiri, tanpa ada yang berbicara, nama babatakan-nya, sudah diberi di-pulang geulis, baik hati kami sejatinya,"@id .
+
+ex:recto_29 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_29_transliteration ;
+    ont:hasTranslation ex:recto_29_translation .
+
+ex:recto_29_transliteration rdf:type ont:Transliterasi ;
+    ont:value "tina, sorana gangsa ngawereg na wangsana, ngadulur sanghyang hayu, kreta subaga, nyangga sanghyang ajnyana, suka sampak sarerea, hanteu nu katitigenan pahi siya nu arageung, papahi wenang wisesa, nu ngajayak kana mula nu wisesa, ngahaturkeun kana puhun, ageus luput ti buruan ageung, ngala"@su-Latn .
+
+ex:recto_29_translation rdf:type ont:Terjemahan ;
+    ont:value "suara gamelan mempercepat singgasana, menyertai ajnyana, sejahtera bahagia, menyangga sangyang ajnyana, suka tersedia semuanya, tanpa ada yang mengawasi, semua yang mulia pembesar, semua wenang berkuasa, yang membimbing kepada asal yang kuasa, menyampaikan kepada pangkalnya, sudah lepas di buruan ageung, melewati"@id .
+
+ex:verso_29 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_29_transliteration ;
+    ont:hasTranslation ex:verso_29_translation .
+
+ex:verso_29_transliteration rdf:type ont:Transliterasi ;
+    ont:value "lar ka dora larangan, sacunduk ka wangun, ka windu puhun rahayu. Nu wisesa tuluy matur, ka hareupeun ka nu siya maka wenang, pahi siya nu arageung, papahi siya wisesa, sampak paksa tunggal kreta ka nu wisesa, nyembah bakti jati ka hareupeun nyana nyukmana, mremanakeun ajnyana, kami hulun ngayo"@su-Latn .
+
+ex:verso_29_translation rdf:type ont:Terjemahan ;
+    ont:value "pintu larangan, setibanya ke tempat, ke pusat asal keselamatan yang agung, kemudian berkata kepada yang mulia wenang, semua yang mulia pembesar, semua yang mulia kuasa, bersedia bertuhan satu sungguh-sungguh kepada yang kuasa, menyembah dan berbakti sepenuh hati ke hadapan nyana nyukmana, menguasai ajnyana, kami hamba mengindahkan"@id .
+
+ex:recto_30 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_30_transliteration ;
+    ont:hasTranslation ex:recto_30_translation .
+
+ex:recto_30_transliteration rdf:type ont:Transliterasi ;
+    ont:value "giakeun sanghyang darma premana aci wisesa, ka nu siya maka nyana, kana wuit mula dadi, ka na jati, kana mula ning nyana, kana tangkal ning ajnyana, cunduk ka puhun sanghyang hayu, datang kana wuit dadi, kawekasan ning pretiwi, datang ka tangkal kawekas ning akasa, datang ka mula wekas ning bwana, datang kana tangkal ka"@su-Latn .
+
+ex:recto_30_translation rdf:type ont:Terjemahan ;
+    ont:value "sanghyang darma, aturan yang mahakuasa, kepada yang mulia pencipta nyana, kepada asal mula jadi, kepada yang mahaasal, kepada yang menjadi awal adanya nyana, kepada pokok adanya ajnyana. Sampai kepada asal ajnyana, datang kepada mula jadi, berakhir pada pretiwi, datang ke asal, berakhir di angkasa, datang kepada permulaan, berakhir di buana, datang kepada asal,"@id .
+
+ex:verso_30 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_30_transliteration ;
+    ont:hasTranslation ex:verso_30_translation .
+
+ex:verso_30_transliteration rdf:type ont:Transliterasi ;
+    ont:value "wekasan na niskala, datang kana tangkal kawekasan ning tan hana, datang kana tangkal hana. Sadatang kana tan hana, cunduk kana puhun luput, kana wekas ning tan katuduhan, wuit ning leuwih sangkan dadi, nu ngayugakeun ajnyana, nu metukeun hana. Sadatang kana tan hana, nu ngawayakeun tan hana, ngayuga bwana jati"@su-Latn .
+
+ex:verso_30_translation rdf:type ont:Terjemahan ;
+    ont:value "berakhir di niskala,datang kepada awal, berakhir pada ketiadaan, datang kepada asal ketiadaan. Setibanya kepada ketiadaan, datang kepada asal kelepasa, berakhir pada ketidaktertunjukkan, yang menjadi asal pada asal kejadian yang lebih, yang menciptakan ajnyana, yang mengeluarkan hana, setibanya kepada ketiadaan, yang mengadakan ketiadaan, menciptakan buana jati"@id .
+
+ex:recto_31 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_31_transliteration ;
+    ont:hasTranslation ex:recto_31_translation .
+
+ex:recto_31_transliteration rdf:type ont:Transliterasi ;
+    ont:value "niskala, tina tangkal pawekasan langgeng taya, nihantara ning bwana, tunggal pawekasan herang linglang, di langgeng ning linglang, linglang di puncak wekas nihantara ning bwana, dina tan hana, ngaran nana nista keleng. Nu wisesa pahi deung nu siya arageung, papahi wenang wisesa, pahi ageus kahareupeun ngahaturkeun kana puhu"@su-Latn .
+
+ex:recto_31_translation rdf:type ont:Terjemahan ;
+    ont:value "niskala. Dari pangkal penghabisan langgeng gaib, terus menerus di buana, tunggal penghabisan bening bersih, pada kelanggengan yang bersih, bersih di puncak tertinggi, terus-menerus di buana, pada ketiadaan, namanya nista keleng. Yang mahakuasa dan semua yang mulia pembesar, semua wenang berkuasa, semua sudah ada di hadapan, menghaturkan kepada asal"@id .
+
+ex:verso_31 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_31_transliteration ;
+    ont:hasTranslation ex:verso_31_translation .
+
+ex:verso_31_transliteration rdf:type ont:Transliterasi ;
+    ont:value "n ngajayak kana tangkal, kana wuit mula dadi, ageus cunduk kana puhun ageus datang kana tangkal ageus kahusir na jati, datang kana mula pasraning ajnyana. Nyahur nu wisesa, pun, kami hulun ngayogiakeun ajnyana ka hareupeun, sugan waya ti sakini, pitineungeun sanghyang hidep lamun hega"@su-Latn .
+
+ex:verso_31_translation rdf:type ont:Terjemahan ;
+    ont:value "menuntun kepada asal, kepada asal mula jadi, sudah sampai kepada pangkal, sudah datang kepada asal, sudah sampai kepada jati, datang kepada asal permata ajnyana. Berkata yang kuasa, Maaf, hambaku mengindahkan ajnyana ke hadapan, barangkali berada dari sekarang, untuk diingatkan sanghyang hidep, kalau hanya ini."@id .
+
+ex:recto_32 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_32_transliteration ;
+    ont:hasTranslation ex:recto_32_translation .
+
+ex:recto_32_transliteration rdf:type ont:Transliterasi ;
+    ont:value "n sakini, kami sadu dek jimbarran sakitu kami hulun metu sabda ti madia, padesa nyana. Anaking nu wisesa, sui hawara jimbarran kena aing dek matingtim ayeuna, aing dek nadanya parintah, sugan ka tuluykeun na da beunang matingtim ku na ngajajadikeun ngeusian na kahanan na pangasih ti nu siya"@su-Latn .
+
+ex:recto_32_translation rdf:type ont:Terjemahan ;
+    ont:value "Ijinkanlah kami akan membubarkan itu, hambaku keluar sabda dari dunia, petunjuk nyana. Anakku, yang kuasa, jangan cepat-cepat dibubarkan karena aku akan berbicara sekarang, aku akan menanyakan perintah, barangkali dilanjutkan karena hasil menimbang oleh yang menjadikan, mengisi pada tempat pada anugrah dari yang mulia"@id .
+
+ex:verso_32 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_32_transliteration ;
+    ont:hasTranslation ex:verso_32_translation .
+
+ex:verso_32_transliteration rdf:type ont:Transliterasi ;
+    ont:value "para wenang, pahi siya tunggal puluh titis kreta sowarajnyana ti madiya, pahi siya matang desa, maka tunggal sampak samadaya. Lamun na becet sirihhan maka patitis kreta sowarajnyana, kana sanga walu pitu, genep panca, kapat tiga, karo tunggal. Pahi bijil na pangasih, pakeun na ja"@su-Latn .
+
+ex:verso_32_translation rdf:type ont:Terjemahan ;
+    ont:value "para wenang, semua yang mulia tunggal puluh, pasti benar suara ajnyana dari dunia, semua yang mulia matangdesa, menjadi tunggal sedia semua. Kalau gaduh tenangkan supaya jelas benar suara ajnyana, kepada sembilan delapan tujuh, enam lima, empat tiga, dua satu. Semua mengeluarkan anugerah untuk jati"@id .
+
+ex:recto_33 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_33_transliteration ;
+    ont:hasTranslation ex:recto_33_translation .
+
+ex:recto_33_transliteration rdf:type ont:Transliterasi ;
+    ont:value "ti, diwindukeun pahi ngawayakeun na kahanan, pigeusaneun na pangasih pahi nu siya arageung, maka patitis palinggih jati. nung Sakitu anaking, nu wisesa, maka puguh tung na rahayu, nyahur nu wisesa, narema ajnya na, mahapremana, pun, kami hulun lamun kitu sanghyang sahur, mungku waya, nu ngeunah nyukayan ajnyana, la"@su-Latn .
+
+ex:recto_33_translation rdf:type ont:Terjemahan ;
+    ont:value "dipusatkan semua mengadakan pada tempatnya, untuk tempat anugerah semua yang mulia pembesar, supaya jelas kedudukannya yang sejati. Demikianlah anakku yang kuasa, supaya jelas akhirnya dalam keselamatan. Berkata yang kuasa,aku terima ajnyana, mahapremana, demikian hambaku. Kalau begitu sanghyang sahur, tidak ada yang enak membayar anjyana,"@id .
+
+ex:verso_33 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_33_transliteration ;
+    ont:hasTranslation ex:verso_33_translation .
+
+ex:verso_33_transliteration rdf:type ont:Transliterasi ;
+    ont:value "mun kitu sanghyang sahur, ageus nungtung na ajnyana, datang ka kami hulun hegan tu kami ngareungeukeun puguh, geusan ngawindukeun sahur sanghyang hidep. Anaking nu wisesa, hade lamun dek jimbaran pada siya wenang wisesa, hegan tu aing heula nitah ambuwa ngabresekainya heula. Sahur nu wisesa, eboh"@su-Latn .
+
+ex:verso_33_translation rdf:type ont:Terjemahan ;
+    ont:value "kalau begitu sanghyang sahur, sudah berakhir pada ajnyana, datang kepada hambaku hanya itu kami mendengarkan dengan jelas, tempat memusatkan pesan sanghyang hidep. Anakku yang kuasa, baiklah kalau akan dibubarkan, pada yang mulia wenang kuasa, hanya itu, aku akan menyuruh ibu membersihkannya dulu. Kata yang kuasa,marilah"@id .
+
+ex:recto_34 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_34_transliteration ;
+    ont:hasTranslation ex:recto_34_translation .
+
+ex:recto_34_transliteration rdf:type ont:Transliterasi ;
+    ont:value "keh urang paksa tunggal ka hareupeun, urang sadu dek jimbaran, laku sadu umun jati, nyembah bakti muncak larang, kahareupeun ka nu siya maka dadi ka nyana. Sahur sanghyang hidep, hade jimbaran patingtimkeun di luar, pahi siya matang desa, maka patitis palinggih jati, mulah waya nu kasalahan maka pa"@su-Latn .
+
+ex:recto_34_translation rdf:type ont:Terjemahan ;
+    ont:value "kita satukan tujuan ke hadapan, ijinkan kami untuk bubar, laku yang baik menyembah yang sejati, menyembah berbakti kepada puncak yang suci, ke hadapan yang mulia penyebab kejadian nyana. Kata sanghyang hidep, baiklah dibubarkan, kita bicarakan di luar, semua yang mulia matangdesa, supaya jelas kedudukannya yang sejati, jangan ada yang salah, supaya semua"@id .
+
+ex:verso_34 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_34_transliteration ;
+    ont:hasTranslation ex:verso_34_translation .
+
+ex:verso_34_transliteration rdf:type ont:Transliterasi ;
+    ont:value "hi sampak suka kreta urang sajagat, kena aing hayang reujeung, sakti ning subaga nyangga sanghyang ajnyana, kena aing hayang kadulur kasukung kawangun. Manaing nyarek sakitu, ja hegan hiji ini, nu pangkat ti manusa, nu meunang atoshatosa nyana, ngawakan sanghyang darma, nu ngadongkap ka na"@su-Latn .
+
+ex:verso_34_translation rdf:type ont:Terjemahan ;
+    ont:value "bersedia suka menyenangkan orang sejagat, karena aku ingin bersama-sama, bersatu pada kebahagiaan menerima sanghyang ajnyana, karena aku ingin disertai didukung dibangun. Adapun sebabnya aku berkata demikian, karena hanya ada satu ini yang pergi dari manusia, yang mendapat kewaspadaan nyana, mengamalkan sanghyang darma, yang datang kepada"@id .
+
+ex:recto_35 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_35_transliteration ;
+    ont:hasTranslation ex:recto_35_translation .
+
+ex:recto_35_transliteration rdf:type ont:Transliterasi ;
+    ont:value "tangkal nu ngahusir na jati, nu cunduk kana puhun datang kana tangkal wuit mula dadi ning ajnyana. Luput ti windu rahayu, liwat ti desa dewata, tina tata sorga kaleupasan, tan liwat ti na sorga kahyangngan, tina sorga ning dewata, na dewata pahi ageus kawisesa, nu maka susah"@su-Latn .
+
+ex:recto_35_translation rdf:type ont:Terjemahan ;
+    ont:value "pangkal yang menuju kepada kesejatian, yang datang kepada asal, datang kepada pangkal asal mula jadinya ajnyana. Lepas dari pusat keselamatan, lewat dari desa para dewata, dari tata sorga kelepasan, tidak lewat dari sorga kahyangan, dari sorga para dewata, karena para dewata semua sudah dikuasai, yang menyebabkan kesusahan"@id .
+
+ex:verso_35 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_35_transliteration ;
+    ont:hasTranslation ex:verso_35_translation .
+
+ex:verso_35_transliteration rdf:type ont:Transliterasi ;
+    ont:value "sabwana, nu maka rentag sajagat nu maka reduh sabumi, pahi ageus kagelar, salaran tapa, pakeun ngawastu sanghyang hayu, ka madiya ka windu puhun rahayu, sahur nu wisesa, ageus sangkup paksa tunggal sampak dengdeng paraspade, kreta urang sajagat hegan tu urang ngareungeukeun, ageu"@su-Latn .
+
+ex:verso_35_translation rdf:type ont:Terjemahan ;
+    ont:value "sebuana, yang menyebabkan goncang sejagat, yang menyebabkan gaduh di bumi, semua sudah tergelar, sebentar tapa, untuk menetapkan ajnyana, ke dunia kepada pusat pangkal keselamatan. Kata yang kuasa,sudah sanggup satu tujuan, bersedia rata semuanya, baik orang sejagat, hanya itu, kita mendengarkan, selesai"@id .
+
+ex:recto_36 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_36_transliteration ;
+    ont:hasTranslation ex:recto_36_translation .
+
+ex:recto_36_transliteration rdf:type ont:Transliterasi ;
+    ont:value "s nu ngawindukeun sanghyang hayu, hegan tu urang mangke ti luar, ngagaway na kahanan pigeusaneun na pangasih. Saageus cunduk ka puhun, ageus datang kana tangkal, ageus kahusir na jati, na sangkan waya beuheula, ti niskala, na mula sangkan ti tan hana, wuit jati, mula waya ning ajnyana, nu hur ti"@su-Latn .
+
+ex:recto_36_translation rdf:type ont:Terjemahan ;
+    ont:value "yang memusatkan ajnyana, hanya itu, kita nanti diluar mengerjakan pada tempat untuk anugerah. Setelah sampai ke asal, setelah datang ke pangkal, sudah tiba pada jati, ke asal ada dahulu dari niskala, yaitu awal mula dari ketiadaan, asal kesejatian, awal keberadaan ajnyana, yang terpilih dari"@id .
+
+ex:verso_36 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_36_transliteration ;
+    ont:hasTranslation ex:verso_36_translation .
+
+ex:verso_36_transliteration rdf:type ont:Transliterasi ;
+    ont:value "madiya ning tan hana, nu padesa ajnyana, ka ambuing tan hana jati, wuit ning dadi, jati ning pretiwi, mula waya ning bwana, sangkan waya ning akasa, ambuing tan hana jati , ngabukti alit na sari ning jati hurip ning bwana, tunggal pretiwi, lawan akasa, di langgeng ning tunggal di kawekasan ning bwana. Luput pretiwi, lu"@su-Latn .
+
+ex:verso_36_translation rdf:type ont:Terjemahan ;
+    ont:value "dunia ketiadaan, pada ajaran ajnyana, kepada ibuku Tan Hana Jati, asal kejadian yang sejati di pretiwi, permulaan adanya di buana, asal berada di angkasa, ibuku Tan Hana Jati, mewujudkan ruh pada inti kesejatian hidup di buana, tunggal pertiwi dengan angkasa, pada keabadian yang tunggal pada penghabisan buana. Lepas pertiwi"@id .
+
+ex:recto_37 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_37_transliteration ;
+    ont:hasTranslation ex:recto_37_translation .
+
+ex:recto_37_transliteration rdf:type ont:Transliterasi ;
+    ont:value "put akasa, luput bwana, luput beurang luput peuting, luput cai sadakala, herang lilang, suniya nilantara, langgeng ning bwana, pawekasan ning caang sadakala, heneng linglang, suniya terus ning caang, langgeng nilantara, ning bwana, luput ti langgeng, ti talahantara, suniya lantara, ti bwana, ti owah ning taya, tunggal langgeng ning"@su-Latn .
+
+ex:recto_37_translation rdf:type ont:Terjemahan ;
+    ont:value "lepas angkasa, lepas buana, lepas siang lepas malam, lepas air abadi, bening bersih, sunyi selamanya, langgeng di buana, pada akhir yang terang abadi, diam bersih, sunyi tembus pada terang, langgeng selamanya di buana, lepas dari langgeng, dari kelanggengan, sunyi selamanya, dari buana, dari perubahan di ketiadaan, tunggal langgeng pada"@id .
+
+ex:verso_37 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_37_transliteration ;
+    ont:hasTranslation ex:verso_37_translation .
+
+ex:verso_37_transliteration rdf:type ont:Transliterasi ;
+    ont:value "taya bwana, di niskala, di tan hana, puhun sanghyang hayu, wuit na alit tangkal na nyana, kahanan sanghyang ajnyana, wuit ni dadi, patunggalan ning tunggal tugal pretiwi lawan akasa, iya tunggal ning ajnyana, pun. Sahur nu seda, sangkan wisesa, ti madia ning tan hana, nyeueung na wangsana, datang na dulur"@su-Latn .
+
+ex:verso_37_translation rdf:type ont:Terjemahan ;
+    ont:value "ketiadaan buana, di niskala, pada ketiadaan, asal ajnyana, asal ruh pangkal nyana, tempat sanghyang ajnyana, asal kejadian, bersatunya pada tunggal pretiwi dengan angkasa, yaitu tunggalnya ajnyana, demikian. Ujar yang sempurna, asal kekuasaan dari dunia pada ketiadaan, melihat pada amal perbuatan, datang bersama"@id .
+
+ex:recto_38 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_38_transliteration ;
+    ont:hasTranslation ex:recto_38_translation .
+
+ex:recto_38_transliteration rdf:type ont:Transliterasi ;
+    ont:value "sang kwan tujuh surung, na sangkwan asrana mirah sagala, ti pandeuri na pangwereg gangsa rari, ditabeuh deungeun goong, dipipanempuh labung. Nu mireungeuh metu cipta ti ajnyana, metu na sabda padesa, tuluy miwarang ambuna, tan hana jati, na wuit sari ning aci, wuit jati mula ning ajnyana, leumpang onam husir ka wang"@su-Latn .
+
+ex:recto_38_translation rdf:type ont:Terjemahan ;
+    ont:value "wadah tujuh panggung, pada wadah permata mirah semua, dari belakang pengiring gangsa rari, ditabuh dengan gong, dipukul dengan keras. Yang melihat keluar cipta dari ajnyana, keluarlah sabda ajaran, kemudian menyuruh ibunya Tan Hana Jati, pada asal inti pada aci, asal sejati permulaan ajnyana, berjalanlah mendatangi wangsana,"@id .
+
+ex:verso_38 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_38_transliteration ;
+    ont:hasTranslation ex:verso_38_translation .
+
+ex:verso_38_transliteration rdf:type ont:Transliterasi ;
+    ont:value "sana, mulah dimaka turun ku maneh, ti manggung na wangsana, mulang dimaka naka natar, nu nema ajnyana, ambu ing tan hana jati, ka hareupeun sanghyang hidep sadu mere nyaho, sugan kami geurageura, hangeuhangeu sasalinger gerek ku pitineungeun hamo reungeu deungeun sanghyang hidep, hegan tu, eboh"@su-Latn .
+
+ex:verso_38_translation rdf:type ont:Terjemahan ;
+    ont:value "jangan dibiarkan turun sendiri, dari atas kepada wangsana, kembali pulang supaya datang ke pelataran, yang menerima ajnyana. Ibuku Tan Hana Jati, ke hadapan sanghyang hidep mohon ijin memberi tahu, barangkali kami tergesa-gesa, tidak sabar tergoda memburu dengan pemikiran, tidak terdengar dengan sanghyang hidep, hanya itu. Marilah"@id .
+
+ex:recto_39 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_39_transliteration ;
+    ont:hasTranslation ex:recto_39_translation .
+
+ex:recto_39_transliteration rdf:type ont:Transliterasi ;
+    ont:value "onam aing ngadulur rahayu, leumpang onam silihan na wangsana. Ambuing miwangsana sarira, palalawas papagah deung darma, deungeun na anak ajnyana, ambuing turun ngahusir na wangsana, pahi unyut turun nu mahayu sanghyang hayu, pahi datang ka wangsana. Sahur ambuing sakini, anaking abet ka dini, sanghyang atma"@su-Latn .
+
+ex:recto_39_translation rdf:type ont:Terjemahan ;
+    ont:value "aku menyertai keselamatan, berjalan bergantian dengan wangsana. Ibuku berhias diri, berlama-lama memberi nasihat dengan darma, serta dengan anak ajnyana. Ibuku turun menuju ke kediamannya, semua ikut turun mengindahkan ajnyana, semua datang ke kediaman. Ujar ibuku demikian, Anakku mendekatlah ke sini, sanghyanag atma,"@id .
+
+ex:verso_39 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_39_transliteration ;
+    ont:hasTranslation ex:verso_39_translation .
+
+ex:verso_39_transliteration rdf:type ont:Transliterasi ;
+    ont:value "ajnyana, aci wisesa, nema ajnyana, ti puhun sanghyang hayu, sanghyang atma aci wisesa. Teher sadu umun jati bakti nyembah ka hareupeun. Hegan tu kami bocah, menta palalun, kami takut hanteu nyaho dina tutur, gurulagu. Hegan tu padan kami mo nyaho dina tingkah tatakrama."@su-Latn .
+
+ex:verso_39_translation rdf:type ont:Terjemahan ;
+    ont:value "ajnyana, aci wisesa, menerima ajnyana, dari asal ajnyana, sanghyang atma, atma aci wisesa. Kemudian ijinkanlah mengabdi berbakti menyembah ke hadapanmu. Hanya itu anakku, mohon dimaklumi, kami takut tidak tahu bertutur dan gurulagu. Hanya itu kemampuan kami, tidak tahu tingkah tatakrama."@id .
+
+ex:recto_40 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_40_transliteration ;
+    ont:hasTranslation ex:recto_40_translation .
+
+ex:recto_40_transliteration rdf:type ont:Transliterasi ;
+    ont:value "Hegan tu nu maka mitakut jarot semang teuing, sugan dipajarkeun nanggeuhan gunung tanpa teuing, ngadeuleu panonpoe tanpa serab sugan geurageura, sasalinger, luncat ciung karo langkah, tepak muka balu bahangga, sugan kasebelan kasualan kapapahan kamalangan. Suga"@su-Latn .
+
+ex:recto_40_translation rdf:type ont:Terjemahan ;
+    ont:value "Hanya itu yang menyebabkan kami takut segan khawatir sekali, barangkali dikatakan terlalu percaya diri, memandang matahari tanpa silau, barangkali tergesa-gesa tidak sabar, terlalu cepat melangkah, tebal muka tidak tahu malu, barangkali menyebalkan, kekesalan, kehinaan, kemalangan. Barangkali"@id .
+
+ex:verso_40 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_40_transliteration ;
+    ont:hasTranslation ex:verso_40_translation .
+
+ex:verso_40_transliteration rdf:type ont:Transliterasi ;
+    ont:value "n keuna ku na cakrakala, upadrawa ning ajnyana, hegan tu sakitu nu maka menta, palalun, hegan tu kami, lamun kajayak lampah di jalan, kami sadulur, nuturkeun sanghyang hayu. Sanghyang atma ageus panteg nu sanggata, ngiyatnakeun na ajnyana. Sahur ambuing sakini Aing nembalan sabda utama,"@su-Latn .
+
+ex:verso_40_translation rdf:type ont:Terjemahan ;
+    ont:value "terkena dengan perputaran waktu, kebiadaban pada ajnyana. Hanya itu, itulah yang menyebabkan kami mohon dimaklumi. Hanya itu, kami kalau terbimbing laku di jalan, kami bersama-sama mengikuti ajnyana. Sanghyang atma sudah selesai yang menyatukan mewaspadakan ajnyana. Kata ibuku demikian, Aku menjawab sabda utama."@id .
+
+ex:recto_41 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_41_transliteration ;
+    ont:hasTranslation ex:recto_41_translation .
+
+ex:recto_41_transliteration rdf:type ont:Transliterasi ;
+    ont:value "anaking sanghyang ajnyana, pihaheun wirang walangati, aing titahan ti madia, silih na wangsana, na wangsana sarira. Anaking, mulah nu dek salah rasa, lain aing nu ngantegan ngaheganan tapa, ngawurungnan rahayu, ja aing inyana jati. Anaking geura onam lugay sila indit birit tina windu"@su-Latn .
+
+ex:recto_41_translation rdf:type ont:Terjemahan ;
+    ont:value "Anakku sanhyang ajnyana, apa yang menyebabkan malu dan khwatir Aku ini pesuruh dari dunia, pengganti pada wangsana, pada wangsana diri. Anakku, janganlah engkau salah merasa, bukan aku yang menghalangi mengganggu tapa, menggagalkan keselamatan, karena aku adalah yang sejati. Anakku segeralah bangkit berdiri dari pusat"@id .
+
+ex:verso_41 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_41_transliteration ;
+    ont:hasTranslation ex:verso_41_translation .
+
+ex:verso_41_transliteration rdf:type ont:Transliterasi ;
+    ont:value "panglungguhan turun ti manggung wangsangna, teher nu menta palalun. Sahur ambu ing sakini Eboh onam aing nema, tangan sanghyang ajnyana, mumul di nu turun ka wangun ambu ing miwangsana, sari ning rasa, turun ti cipta sorangan dipangku dihalimpukeun na aisan asra maya, sari asri suci jati,"@su-Latn .
+
+ex:verso_41_translation rdf:type ont:Terjemahan ;
+    ont:value "kedudukan turun dari atas wangsana, kemudian memohon dimaklumi. Ujar ibuku demikian,Biarlah aku terima tangan sanghyang ajnyana, malas yang turun ke bangunan. Ibuku berhias dengan keindahan rasa, turun dari cipta sendiri, dipangku dengan nyaman pada gendongan permata bayangan yang indah asri suci sejati."@id .
+
+ex:recto_42 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_42_transliteration ;
+    ont:hasTranslation ex:recto_42_translation .
+
+ex:recto_42_transliteration rdf:type ont:Transliterasi ;
+    ont:value "ambuing ngalampahkeun suku tangan pahi sampak nyangganyangga, subaga sanghyang ajnyana, unyut nu turutan nu mangku sanghyang hayu, ambuing maan unggah ka bwana, pawekasan ning sarira, dina tangkal seda ning bwana, ninggalkeun dasakalesa, ngalaan na dasamala, moocan na rajatamah, dina seda tang"@su-Latn .
+
+ex:recto_42_translation rdf:type ont:Terjemahan ;
+    ont:value "Ibuku, menggerakkan kaki dan tangan semua siap menerima, kebahagiaan sanghyang ajnyana, ikut menurut kepada yang memangku sangyhang hayu. Ibuku membawa naik ke buana, berakhir pada diri, pada pangkal kesempurnaan di buana, meninggalkan dasakalesa, melepaskan dasamala, melepaskan rajatamah, pada kesempurnaan pangkal"@id .
+
+ex:verso_42 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_42_transliteration ;
+    ont:hasTranslation ex:verso_42_translation .
+
+ex:verso_42_transliteration rdf:type ont:Transliterasi ;
+    ont:value "kal mala, ambuing ageus mulangkeun dribiya kala, pangkat ka bwana jati, ka aci ning seda kancana, herang na tatapakan puncak mirah, puncak omas pahi ambuing cunduk ka wangun nu tuluy asup ka larbur, na miru manik herang cenang, caang siang puncak na asra haremas hibar reungeu deung sembawa, pahi"@su-Latn .
+
+ex:verso_42_translation rdf:type ont:Terjemahan ;
+    ont:value "mala. Ibuku sudah mengembalikan hakikat waktu, berangkat ke buana jati, kepada inti kesempurnaan kencana, bening pada tiang puncak mirah, puncak emas semuanya. Ibuku tiba ke bangunan, yang kemudian masuk ke gerbang, dengan meru permata bening berkilauan, terang siang puncaknya permata emas bercahaya, pendengaran dengan kesaktian semua."@id .
+
+ex:recto_43 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_43_transliteration ;
+    ont:hasTranslation ex:recto_43_translation .
+
+ex:recto_43_transliteration rdf:type ont:Transliterasi ;
+    ont:value "ambuing lungguh di labur, eureun heula, sanghyang ajnyana, nurunkeun tina lahunan, ngalungguhkeun sanghyang hayu, sang atma aci wisesa, dinya geusan diraratan ngabresih sarira jati, ngabresekasang atma, aci wisesa, na caang canembrang herang, tina jati lenggang maya, bijil ti hulu na heneng, bijil tina asra manik na"@su-Latn .
+
+ex:recto_43_translation rdf:type ont:Terjemahan ;
+    ont:value "Ibuku duduk di tepi jalan, berhenti dulu. Sanghyang ajnyna diturunkan dari pangkuan, mendudukkan ajnyana, sang atma aci wisesa, di tempat itu membersihkan badan sejati, membasuh sang atma aci wisesa, yang terang bening berkilauan, dari jati lenggang maya. Keluar dari hulunya diam, keluar dari permata manik, dengan"@id .
+
+ex:verso_43 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_43_transliteration ;
+    ont:hasTranslation ex:verso_43_translation .
+
+ex:verso_43_transliteration rdf:type ont:Transliterasi ;
+    ont:value "panimba salaka mirah sagala. Ini rajah na pakeun moocan na rajatamah saratna. Sara pakeun ngalebur na musuh, pakeun ngaleungitkeun alit mala jati, petukeun ti sarira jati, luputkeun ti rasa, bayu sabda hidep jeueung denge tutur sahkeun ti bwana. Ini pamusahkeun maya, ras sah ta mana, ras"@su-Latn .
+
+ex:verso_43_translation rdf:type ont:Terjemahan ;
+    ont:value "gayung perak dan permata segala. Ini adalah rajah untuk melepas rajatamah semuanya. Kekuatan untuk menghancurkan musuh, untuk menghilangkan ruh mala jati. Keluarkan dari diri sejati, lepaskan dari rasa, bayu sabda hidep, lihat dan dengarkan tutur, putuskan dari buana. Ini untuk memisahkan bayangan. Ingat, putuslah mana. Ingat,"@id .
+
+ex:recto_44 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_44_transliteration ;
+    ont:hasTranslation ex:recto_44_translation .
+
+ex:recto_44_transliteration rdf:type ont:Transliterasi ;
+    ont:value "sah ta bwana, ras sah ta mala, ras sah taya, ras sah ratna, ras sah ta hilang, ras sah ta leungit. Sahur ambuing, eboh onam briseka, sanghyang ajnyana sahur ambuing tan hana ratna, pahi abuing tan hana maya, anaking cupatan onam busana, ageus sang atma cupat busana, ambuing mangku dina panglungguh"@su-Latn .
+
+ex:recto_44_translation rdf:type ont:Terjemahan ;
+    ont:value "putuslah buana. Ingat, putuslah mala. Ingat, putuslah taya. Ingat, putuslah ratna. Ingat, putuslah hilang. Ingat, putuslah musnah. Ujar ibuku demikian,Marilah kita bersihkan sanghyang ajnyana. Ujar ibuku,tidak ada permata, semua tidak ada bayangan. Anakku bukalah pakaianmu Setelah sang atma meleepaskan pakaian, ibuku memangku pada tempat duduk,"@id .
+
+ex:verso_44 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_44_transliteration ;
+    ont:hasTranslation ex:verso_44_translation .
+
+ex:verso_44_transliteration rdf:type ont:Transliterasi ;
+    ont:value "han mindahkeun deuuk kana patilasan sanghyang ajnyana, ambuing pahi sampak maribuk sah sarira, pahi pahayu, ngawangun sanghyang hayu, sampak ngararatan na ajnyana, ageus dewata, pawinga pawela nyana, herang sarira. Ageus aci rupa jati, lenggang premana, rupa ning atma, ageus heneng rupa jati. Ageus"@su-Latn .
+
+ex:verso_44_translation rdf:type ont:Terjemahan ;
+    ont:value "berpindah duduknya ke petilasan sanghyang ajnyana. Ibuku, semua siap sedia mengharumkan diri, semuanya indah, menegakkan ajnyana, sedia menghaluskan ajnyana. Sudah menjadi dewata, cemerlang pikiran pada batas akhir nyana, bening diri. Sudah menjadi inti rupa sejati, lenggang sempurna rupa atma. Sudah tetap pada rupa yang sejati. Sudah"@id .
+
+ex:recto_45 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_45_transliteration ;
+    ont:hasTranslation ex:recto_45_translation .
+
+ex:recto_45_transliteration rdf:type ont:Transliterasi ;
+    ont:value "awak luput rupa, dina kawekasan rupa jati, liwat ti maya na herang heneng. Ageus kapurba nyana, kreta rasa jati palipurna, ning ajnyana. Ageusna sarira wastu jati, mulia jati utama. Ageus premana jati wisesa. Ageus wastu na jati sanghyang hayu. Ambuing tan hana jati, pahi ambuing tan ha"@su-Latn .
+
+ex:recto_45_translation rdf:type ont:Terjemahan ;
+    ont:value "menjadi badan yang tanpa rupa, dari akhir rupa sejati, lewat dari bayangan yang bening tetap. Sudah dikuasai oleh nyana, sempurna rasa sejati paripurna pada ajnyana. Setelah badan tetap pada kesejatian, mulia sejati utama. Sudah sempurna sejati dan agung. Sudah tetap pada kesejatian ajnyana. Ibuku Tan Hana Jati semua, Ibuku Tan Hana"@id .
+
+ex:verso_45 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_45_transliteration ;
+    ont:hasTranslation ex:verso_45_translation .
+
+ex:verso_45_transliteration rdf:type ont:Transliterasi ;
+    ont:value "na ratna, ambuing tan hana maya, ageus ngatelesan nyana, pangkat tina moksahan rajatama, disawer ku asra omas haremas, na panyawer carenang herang, ngampar dina tatapakan mirah. Ambuing mangku tina panuusan. Saasup ambuing ka labur, ngawin dukeun sanghyang hayu. Ambuing nyanten nyana, sari busana"@su-Latn .
+
+ex:verso_45_translation rdf:type ont:Terjemahan ;
+    ont:value "Ratna, Ibuku Tan Hana Maya, sudah selesai membasuh nyana, berangkat dari kelepasan rajatama, ditabur dengan permata emas, dengan taburan bening berkilauan, terhampar pada tiang mirah. Ibuku memangku dari tempat berjemur, setelah masuk ibuku ke gerbang, memusatkan ajnyana. Ibuku menyarikan nyana, sari busana"@id .
+
+ex:recto_46 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_46_transliteration ;
+    ont:hasTranslation ex:recto_46_translation .
+
+ex:recto_46_transliteration rdf:type ont:Transliterasi ;
+    ont:value "sanghyang ajnyana dipangmukakeun. Basana asrana terus ning rasa, herang larang buka lenggang, mamaya nu rupa premana. Na busana pakeun mangkatkeun ajnyana, ka puhun sanghyang hayu, jati mula ning sarira, ka tangkal ning nyana, kahanan sanghyang ajnyana, dinya wuit mula, pawekasan ning dewata. Sahur ambuing Enam"@su-Latn .
+
+ex:recto_46_translation rdf:type ont:Terjemahan ;
+    ont:value "sanghyang ajnyana dibukakan. Ketika permatanya tembus pada rasa, bening suci terbuka lenggang, bayangannya pada rupa yang sempurna. Busana itu untuk memberangkatkan ajnyana kepada asal ajnyana, kesejatian awal pada diri, kepada pangkal nyana, tempat sanghyang ajnyana, pada asal mula, berakhir pada dewata. Ujar ibuku,Marilah"@id .
+
+ex:verso_46 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_46_transliteration ;
+    ont:hasTranslation ex:verso_46_translation .
+
+ex:verso_46_transliteration rdf:type ont:Transliterasi ;
+    ont:value "onam urang mangkat ageus atma rupa jati palipurna, ageus sari budi jati, ageus rasa budi nyana, ageus wastu budi rahayu, ageus ajnyana, wastu premana, ambuing mangkat ti labur maan ngahusir kahanan pawekasan ning tan hana, datang ka madiya ning pawekasan ning ajnyana, dina luput pa"@su-Latn .
+
+ex:verso_46_translation rdf:type ont:Terjemahan ;
+    ont:value "kita berangkat Sudah menjadi atma dengan rupanya yang sejati paripurna. Setelah menjadi inti budi sejati, sudah menjadi rasa budi nyana, sudah tetap pada budi yang selamat. Sudah menjadi ajnyana, tetap sempurna, ibuku berangkat dari gerbang membawa dan menuju tempat akhir pada tan hana, datang ke dunia akhir pada ajnyana. Pada kelepasan berakhir"@id .
+
+ex:recto_47 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_47_transliteration ;
+    ont:hasTranslation ex:recto_47_translation .
+
+ex:recto_47_transliteration rdf:type ont:Transliterasi ;
+    ont:value "wekasan ning luput, tina luput tan katuduhan, ti nu nuduh tan katuduh, luput bayu luput hurip, luput asra luput asri, luput atma luput aci, luput cit luput panas luput tiis, luput hujan luput angin, luput sakeng sunya taya, luput sa"@su-Latn .
+
+ex:recto_47_translation rdf:type ont:Terjemahan ;
+    ont:value "pada kelepasan, dari kelepasan tanpa tertunjukkan, dari yang menunjukkan tanpa tertunjukkan, tanpa bayu tanpa hidup, tanpa permata tanpa keindahan, tanpa atma tanpa aci, tanpa panas tanpa dingin, tanpa hujan tanpa angin, lepas dari kesunyian ketiadaan, lepas dari"@id .
+
+ex:verso_47 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_47_transliteration ;
+    ont:hasTranslation ex:verso_47_translation .
+
+ex:verso_47_transliteration rdf:type ont:Transliterasi ;
+    ont:value "keng aditiya, luput sakeng patapaan, luput ning luput, luput beurang luput peteng, luput caang sadakala, tina tangkal pawekasan nu maka caang na bwana, tina puhun mula jati ning bwana, sangkan waya pawekasan. Tina puhun luput puhun tan katuduh, ti puhun saha eta nu nyieun"@su-Latn .
+
+ex:verso_47_translation rdf:type ont:Terjemahan ;
+    ont:value "dari matahari, lepas dari pertapaan, lepas pada kelepasan, tanpa siang tanpa malam, lepas terang abadi, dari pangkal akhir yang menyebabkan terang di buana, dari asal mula kesejatian di buana, asal keberadaan akhir. Dari asal lepas asal tidak tertunjukkan. Dari asal siapa yang membuat"@id .
+
+ex:recto_48 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_48_transliteration ;
+    ont:hasTranslation ex:recto_48_translation .
+
+ex:recto_48_transliteration rdf:type ont:Transliterasi ;
+    ont:value "puhun, eta nu mijilkeun ajnyana, ti tan hana bijil tan hana, dingaranan ku tan hana, eta nu luput diseguh nyaho ku puhun, pun. pahi Ambuing mangku sanghyang maan cunduk ka puhun hayu, datang ka tangkal ajnyana, ka kahanan sanghyang patunggalan ambu ayah dina luput"@su-Latn .
+
+ex:recto_48_translation rdf:type ont:Terjemahan ;
+    ont:value "asal, yaitu yang mengeluarkan ajnyana dari ketiadaan keluar ketiadaan, dinamai dengan ketiadaan, yaitu yang lepas, mengerti dan tahu oleh asal, demikian. Ibuku semua datang ke asal memangku ajnyana, datang ke pangkal membawa sanghyang ajnyana, ke tempat bersatunya ibu dan ayah pada kelepasan"@id .
+
+ex:verso_48 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_48_transliteration ;
+    ont:hasTranslation ex:verso_48_translation .
+
+ex:verso_48_transliteration rdf:type ont:Transliterasi ;
+    ont:value "pawekasan tan katuduh, ti niskala dina luput mula jati, tina pawekasan ning tan hana, tina tangkal pawekasan ning ajnyana, liwat tina tangkal pawekasan herang linglang, leuwih tina pawekasan heneng linglang liwat tina adras asra pawekasan ni bwana, na langgeng ning pawekasan"@su-Latn .
+
+ex:verso_48_translation rdf:type ont:Terjemahan ;
+    ont:value "terakhir yang tak tampak, dari niskala pada kelepasan awal sejati, dari akhir ketiadaan, dari pangkal akhir pada ajnyana, lewat dari pangkal akhir yang bening bersih, lebih dari akhir yang tetap bersih, lewat dari kekuatan permata akhir di buana, yang langgeng pada akhir"@id .
+
+ex:recto_49 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_49_transliteration ;
+    ont:hasTranslation ex:recto_49_translation .
+
+ex:recto_49_transliteration rdf:type ont:Transliterasi ;
+    ont:value "nilantara, tina luput pawekasan ling na leungeu, tina nista mana, pawekasan ning tan hana, luput ti kahanan na puhun, ja luput ti nu luput magaweluput paratra, warna ning kahanan nu siya wenang, pahi wisesa, tata niskala, ti puhun nitipkeun inya di bwana, pun. Saageus da"@su-Latn .
+
+ex:recto_49_translation rdf:type ont:Terjemahan ;
+    ont:value "selamanya, dari kelepasan akhir kata yang indah, dari kerendahan mana, berakhir pada ketiadaan, lepas dari tempat asal, karena lepas dari yang lepas mengerjakan kelepasan alam baka, bermacam-macam tempat yang mulia wenang, semuanya agung, menurut aturan niskala, dari asal menitipkannya di buana, demikian."@id .
+
+ex:verso_49 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_49_transliteration ;
+    ont:hasTranslation ex:verso_49_translation .
+
+ex:verso_49_transliteration rdf:type ont:Transliterasi ;
+    ont:value "tang ka tangkal, cunduk ka puhun sanghyang darma, datang ka kahanan ambu ayah, nyahur ambuing ka hareupeun, pun kami na nyana, parintah geui urang ngajajadikeun, pun. Sahur ti puhun ambu geura lungguhkeun aing ngadulur rahayu, windukeun onam sanghyang hayu, sasangku palipurnakeun sarira maka sampak su"@su-Latn .
+
+ex:verso_49_translation rdf:type ont:Terjemahan ;
+    ont:value "Setelah datang ke pangkal, sampai ke asal sanghyang darma, datang ke tempat ibu dan ayah, berkata ibuku ke hadapan kami,maaf, kami bertanya, perintah pikiran kita wujudkan. Demikian. Ujar dari asal,Ibu, segeralah dudukkan aku menyertai keselamatan, pusatkanlah pada ajnyana, satukan sempurnakan diri, supaya siap sedia berbahagia"@id .
+
+ex:recto_50 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_50_transliteration ;
+    ont:hasTranslation ex:recto_50_translation .
+
+ex:recto_50_transliteration rdf:type ont:Transliterasi ;
+    ont:value "baga, nyangga sanghyang ajnyana. Ambuing pahi ageus genep legep sangkep nyukung ngawangun, ngawindukeun na palungguhan sangkwan sanghyang hayu, aci ning hurip sari na heneng, herang na aci sagala, na panyawer aci na sari, herang na rasa sagala, acining atma tumpaka di tengah sari na heneng, herang na lenggang sagala"@su-Latn .
+
+ex:recto_50_translation rdf:type ont:Terjemahan ;
+    ont:value "menerima sanghyang ajnyana. Ibuku semua sudah selesai genap penuh lengkap mendukung, membangun, memusatkan pada kedudukan wadah ajnyana, inti kehidupan sari yang tetap, bening inti semuanya, bertabur dengan inti yang indah, bening dalam segala rasa, intinya atma berada di tengah sari yang tetap, bening dan lenggang, semuanya"@id .
+
+ex:verso_50 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_50_transliteration ;
+    ont:hasTranslation ex:verso_50_translation .
+
+ex:verso_50_transliteration rdf:type ont:Transliterasi ;
+    ont:value "ageus kapahayu, luput aci rupa jati, ageus kapalipurnakeun sanghyang ajnyana, ageus jati windu sanghyang hayu, ageus disangku dihalimpukeun sang atma aci wisesa, disalin busana jati, terusna heneng herang na maya, hegang na asra bwana, ageus disalin busana sanghyang ajnyana, diwindukeun dideuukeun reungeu deung"@su-Latn .
+
+ex:verso_50_translation rdf:type ont:Terjemahan ;
+    ont:value "sudah diperindah, lepas inti rupa yang sejati, sudah disempurnakan sanghyang ajnyana, sudah menjadi sejati pada pusat ajnyana, sudah ditempatkan dengan nyaman sang atma inti keagungan, dipersalin dengan busana sejati, tembus tetap bening pada bayangannya, bening permata buana, sudah dipersalin dengan sanghyang ajnyana, dipusatkan didudukkan, pendengaran dengan"@id .
+
+ex:recto_51 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_51_transliteration ;
+    ont:hasTranslation ex:recto_51_translation .
+
+ex:recto_51_transliteration rdf:type ont:Transliterasi ;
+    ont:value "deung na pangasih ambu ayah nu dipisari pawak dwa puluh nu ajnyana premana, larang sagala, na pangwastu ti puhun ngadeuukeun sanghyang hayu, nu ngaskara, teher ngadegkeun pawarang, na pangaskara, cihna cita premana, leuwih na larang, na pawarang ngaranna terusna larang, premana herang na maya tan hana. Heneng na aci herang na maya,"@su-Latn .
+
+ex:recto_51_translation rdf:type ont:Terjemahan ;
+    ont:value "anugerah ibu dan ayah, yang dijadikan sari penjelmaan dua puluh, yang sempurna ajnyana, suci semuanya. Dengan ketentuan dari asal mendudukkan ajnyana, yang menahbiskan, kemudian mengangkat permaisuri, dengan pentahbisan, bukti pikiran yang sempurna, lebih suci, dengan permaisuri yang bernama Terusna Larang, sempurna bening pada bayangan ketiadaan. Tetap pada inti beningnya bayangan,"@id .
+
+ex:verso_51 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_51_transliteration ;
+    ont:hasTranslation ex:verso_51_translation .
+
+ex:verso_51_transliteration rdf:type ont:Transliterasi ;
+    ont:value "premana cita tan hana. Herang tan hana, premana leuwih na larang. Aci na sari premana, maya na larang. Ageus ambu ayah, ngawastu sanghyang hayu, na kahanan luput tina hurungherang tina lenggang, linglang tina heneng linglang, luput tina pawekasan ning bwana, dina bwana nis na telenging jati, di inya pigeusaneun na kahana"@su-Latn .
+
+ex:verso_51_translation rdf:type ont:Terjemahan ;
+    ont:value "sempurna pikiran pada ketiadaan. Bening pada ketiadaan, sempurna lebih suci. Inti pada sari kesempurnaan, bayangan suci. Setelah ibu dan ayah mengukuhkan ajnyana, pada tempat kelepasan dari kilau-kemilau dari lenggang, bersih dari tetap bersih, lepas dari akhir buana, dari buana kosong pada kedalaman sejati, di situlah untuk dijadikan tempat"@id .
+
+ex:recto_52 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_52_transliteration ;
+    ont:hasTranslation ex:recto_52_translation .
+
+ex:recto_52_transliteration rdf:type ont:Transliterasi ;
+    ont:value "n nu ti luar, inya luput ti sakitu na kahanan dina luput pawekasan ambu ayah, pun. Ageus ti puhun nu ngawindukeun di kahanan sahur nu wisesa, hegan tu kami nanya ka nusiya arageung papahi wenang wisesa, sahur dayeuhan di cita nagara asra wisesa, narema sabda nu wisesa, hegan tu lamu"@su-Latn .
+
+ex:recto_52_translation rdf:type ont:Terjemahan ;
+    ont:value "bagi orang luar, dia lepas dari itu, pada tempat kelepasan akhir ibu dan ayah, demikian. Setelah dari asal yang memusatkan pada tempat nya, kata yang kuasa,hanya itu kami bertanya kepada yang mulia pembesar, semua wenang berkuasa. Kata yang menguasai di cita nagara permata agung,kami terima sabda yang kuasa, hanya itu bila"@id .
+
+ex:verso_52 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_52_transliteration ;
+    ont:hasTranslation ex:verso_52_translation .
+
+ex:verso_52_transliteration rdf:type ont:Transliterasi ;
+    ont:value "n ageus sangkup kumpul mipulung, sampak tunggal samadaya, patitis walang wilis palinggih jati, ageus katitissan kreta sowarajnyana, urang sajagat. Sahur nu wisesa, eboh onam urang sampak ngawayakeun na kahanan pigeusanneun na pangasih, lain kukuriyakan lain aci"@su-Latn .
+
+ex:verso_52_translation rdf:type ont:Terjemahan ;
+    ont:value "selesai lengkap berkumpul, siap sedia bersatu semuanya setujuan, halaman hijau pada kedudukan sejati, sudah terperciki kemuliaan suara ajnyana orang sejagat. Ujar yang kuasa, marilah kita siap sedia mengadakan tempat untuk menempatkan anugerah. Bukan untuk memperbanyak pekerjaan, bukan inti pada"@id .
+
+ex:recto_53 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_53_transliteration ;
+    ont:hasTranslation ex:recto_53_translation .
+
+ex:recto_53_transliteration rdf:type ont:Transliterasi ;
+    ont:value "kana jatina, di nis ning bwana telenging geusan tan hana, larang ajnyana, ti luar dinya geusan ngawayakeun na kahanan nu wisesa, ngawayakeun kahanan asra na heneng, terusna langgeng ning bwana, lain kukuriyakan lain acina, kena jatina eusina, na pangasih sapuluh nu dipipangawak ajnyana, larang sagala, dayeuh"@su-Latn .
+
+ex:recto_53_translation rdf:type ont:Terjemahan ;
+    ont:value "kesejatiannya, pada kekosongan buana kedalaman tempat ketiadaan, suci ajnyana dari luar, di situlah untuk mengadakan tempat yang agung, mengadakan tempat permata yang tetap, tembus langgeng di buana. Bukan untuk memperbanyak pekerjaan, bukan intinya karena kesejatian isinya. Pada anugerah sepuluh yang dijelmakan ajnyana, semuanya suci. Tinggal di"@id .
+
+ex:verso_53 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_53_transliteration ;
+    ont:hasTranslation ex:verso_53_translation .
+
+ex:verso_53_transliteration rdf:type ont:Transliterasi ;
+    ont:value "kahanna inya cita maya cihna cita heneng, terus na maya kuning, sari ning cihna, herang na maya premana. Sakitu nu ajnyana premana, pangwastu nu wisesa. Dayeuhan di cita nagara, asra wisesa, ngawayakeun kahanan di nis na bwana langgeng, di nis na telenging ngawayakeun kahanan sangkan ning asra, tang"@su-Latn .
+
+ex:verso_53_translation rdf:type ont:Terjemahan ;
+    ont:value "tempatnya pikiran, bayangan, bukti pikiran yang tetap, tembus pada bayangan kuning, keindahan pada bukti, bening pada bayangan sempurna. Demikianlah yang ajnyana sempurna, penetapan yang kuasa. Tempat tinggal pada cita negara, permata yang agung, mengadakan tempat pada kekosongan buana langgeng, pada kekosongan tempat terdalam, mengadakan tempat asal permata, pangkal"@id .
+
+ex:recto_54 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_54_transliteration ;
+    ont:hasTranslation ex:recto_54_translation .
+
+ex:recto_54_transliteration rdf:type ont:Transliterasi ;
+    ont:value "kal ning waya, terus ning langgeng bwana, lain kukuriyakann lain acina, kena jatina, eusina, na pangasih sapuluh pangwastu sanghyang hayu, ngaranna, citana premana maya larang. Cita na herang premana leuwih na larang, sari ning cita, herang na maya, leuwih na larang. Sakitu, pamastuna, dayeuhan"@su-Latn .
+
+ex:recto_54_translation rdf:type ont:Terjemahan ;
+    ont:value "keadaan, tembus langgeng buana. Bukan untuk memperbanyak pekerjaan, bukan intinya karena kesejatian isinya, pada anugerah sepuluh ketetapan ajnyana, namanya pikiran yang sempurna, sempurna bayangan suci. Pikiran yang bening sempurna lebih suci, keindahan pikiran, bening pada bayangan, lebih pada kesucian. Demikian ketetapannya, tempat tinggal"@id .
+
+ex:verso_54 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_54_transliteration ;
+    ont:hasTranslation ex:verso_54_translation .
+
+ex:verso_54_transliteration rdf:type ont:Transliterasi ;
+    ont:value "di cita nagara, asra wisesa, ka dayeuhan nis na telenging, ka nu tan hana, larang ajnyana, dayeuhhan di cita hegang nagara, asra bwana, ngawayakeun kahanan sangkan na lenggang wit na mula, asra sangkan langgeng ning bwana, lain kukuriyakan lain acina, kena jati, eusina, na pangwastu sapuluh"@su-Latn .
+
+ex:verso_54_translation rdf:type ont:Terjemahan ;
+    ont:value "di cita negara, permata yang agung, ke tempat tinggal kosong di tempat terdalam, ke ketiadaan, suci ajnyana, tempat tinggal pada pikiran yang bening, negara permata buana, mengadakan tempat asal yang lenggang pada asal yang awal, permata asal kelanggengan di buana. Bukan untuk memperbanyak pekerjaan, bukan intinya, karena kesejatian isinya, pada sepuluh ketetapan"@id .
+
+ex:recto_55 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_55_transliteration ;
+    ont:hasTranslation ex:recto_55_translation .
+
+ex:recto_55_transliteration rdf:type ont:Transliterasi ;
+    ont:value "premana, larang sagala, ngaran na cita nis na heneng herang na maya larang. Cita maya premana, sangkan na larang, aci sari maya na heneng, dayeuhan di puncak nagara, asra na heneng, ngawayakeun kahanan sangkan ning puncak tungtung langgeng ning bwana, sangkan asra, wuit na heneng, lain kukuriyakan lain acina, ke"@su-Latn .
+
+ex:recto_55_translation rdf:type ont:Terjemahan ;
+    ont:value "yang sempurna, suci semuanya, namanya pada pikiran kosong yang tetap bening pada bayangan suci. Pikiran bayangan sempurna asal yang suci, inti keindahan bayangan yang tetap, tempat tinggal di puncak negara, permata yang tetap, mengadakan tempat asal pada puncak ujung kelanggengan di buana, asal permata, asal yang tetap. Bukan memperbanyak pekerjaan, bukan intinya, karena"@id .
+
+ex:verso_55 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_55_transliteration ;
+    ont:hasTranslation ex:verso_55_translation .
+
+ex:verso_55_transliteration rdf:type ont:Transliterasi ;
+    ont:value "na jatina, eusina, na pangwastu sapuluh, nu ajnyana, larang sagala, ngaranna cita ning larang, mayana mulia herang, cita nis ning larang, herang na maya larangan. Nis na larang, herang na premana, maya ning larang. Sakitu, ti dayeuhhan di puncak nagara asra na heneng, pahi waya, na pangwereug sarwa waya, tatabeu"@su-Latn .
+
+ex:verso_55_translation rdf:type ont:Terjemahan ;
+    ont:value "isinya, pada sepuluh ketetapan ajnyana, suci semuanya. Namanya pikiran yang suci, bayangannya mulia bening, pikiran kosong pada kesucian, bening pada bayangan kesucian. Kosong pada kesucian, bening pada kesempurnaan, bayangan yang suci. Demikianlah tempat tinggal di puncak negara, permata yang tetap, semuanya ada, dengan peneguh semuanya ada, tetabuhan"@id .
+
+ex:recto_56 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_56_transliteration ;
+    ont:hasTranslation ex:recto_56_translation .
+
+ex:recto_56_transliteration rdf:type ont:Transliterasi ;
+    ont:value "han suka karamean sanghyang hayu, ngawastu nu tan hana larang ajnyana, pun. Dayeuhan di cita maya na asra ning herang, ngawayakeun kahanan sangkan na maya, mula ning asra, terus na langgeng ning herang, lain kukuriyakan lain aci ning kena jatina, eusi sangsakep wereug sarwa tata"@su-Latn .
+
+ex:recto_56_translation rdf:type ont:Terjemahan ;
+    ont:value "gembira meramaikan ajnyana, menetapkan ketiadaan yang suci ajnyana, demikian. Tempat tinggal pada cita, bayangan permata yang bening, mengadakan tempat asal bayangan, permulaan pada permata, tembus langgeng pada kebeningan. Bukan mempetbanyak pekerjaan, bukan inti karena sejatinya isi, lengkap diiringi serba tetabuhan"@id .
+
+ex:verso_56 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_56_transliteration ;
+    ont:hasTranslation ex:verso_56_translation .
+
+ex:verso_56_transliteration rdf:type ont:Transliterasi ;
+    ont:value "beuhhan suka karamean sanghyang hayu, pangwastu sapuluh sari sanghyang hayu, pangawak larang sagala, ngaranna cita na larang maya na herang, cita na herang, maya na larang, cita ning maya premana, nu herang ning larang, pun. Sakitu pamastuna, di nu tan hana larang ajnyana, pun. Dayeuhan di cita"@su-Latn .
+
+ex:verso_56_translation rdf:type ont:Terjemahan ;
+    ont:value "gembira keramaian ajnyana, sepuluh ketetapan sari ajnyana. Sekujur tubuh suci semuanya, namanya cita yang suci, bayangan yang bening, cita yang bening, bayangan yang suci, cita pada bayangan yang tetap, yang bening suci. Demikian. Itulah ketentuan pada ketiadaan suci ajnyana. Demikian. Tempat tinggal di cita"@id .
+
+ex:recto_57 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_57_transliteration ;
+    ont:hasTranslation ex:recto_57_translation .
+
+ex:recto_57_transliteration rdf:type ont:Transliterasi ;
+    ont:value "nagara, asra na heneng, ngawakeun kahanan di nis ning bwana langgeng, di nis na telenging, na kahanan sangkan herang ning asra, wuit mula na heneng deung langgeng ning terus na heneng, lain kukuriyakan lain acina, kena jatina, aci na pangwastu sapuluh pangawak premana, larang sagala, pahi wayakeuna pangwereg tatabeuhan suka ka"@su-Latn .
+
+ex:recto_57_translation rdf:type ont:Terjemahan ;
+    ont:value "negara, permata yang tetap, mendiami tempat pada kekosongan di buana langgeng, pada kekosongan yang terdalam, pada tempat asal bening pada permata, asal mula yang tetap dan langgeng, yang terus yang tetap. Bukan memperbanyak pekerjaan, bukan intinya karena sejatinya, intinya sepuluh ketetapan tubuh yang sempurna, suci semuanya. Semua mengadakan iringan tetabuhan gembira"@id .
+
+ex:verso_57 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_57_transliteration ;
+    ont:hasTranslation ex:verso_57_translation .
+
+ex:verso_57_transliteration rdf:type ont:Transliterasi ;
+    ont:value "ramean sanghyang hayu pun. Eusina sari pangngasih, ngaranna sari ning cita, maya na larang, leuwih ning herang sari ning herang, leuwih ning maya na larang na heneng, sari ning larang, leuwih mayana ning herang, pun. Sakitu ngawastuna, ka nu tan hana, larang ajnyana, pun. Dayeuhan di puncak hegang nagara asra wisesa, ngawaya"@su-Latn .
+
+ex:verso_57_translation rdf:type ont:Terjemahan ;
+    ont:value "keramaian ajnyana. Demikian. Isinya sari anugerah, namnya sari pada cita, bayangan yang suci, yang lebih dari pada beningnya sari pada kebeningan, lebih pada bayangan yang suci tetap, sari pada kesucian, lebih dari bayangan yang bening. Demikian. Itulah ketentuannya pada ketiadaan, suci ajnyana. Demikian. Tempat tinggal di puncak beningnya negara, permata yang agung. Mengadakan"@id .
+
+ex:recto_58 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_58_transliteration ;
+    ont:hasTranslation ex:recto_58_translation .
+
+ex:recto_58_transliteration rdf:type ont:Transliterasi ;
+    ont:value "keun kahanan na kahanan mula ning taya, sangkan na lenggang, di terus na heneng. di langgeng ning bwana, lain kukuriyakan lain acina, kena jatina, pahi sangkepna pangwereg tatabeuhan suka karamean pangwindu sanghyang hayu, hayu pangwastuna, sapuluh premana, larang sagala, ngaran cita lenggang ning maya, cita sari ning"@su-Latn .
+
+ex:recto_58_translation rdf:type ont:Terjemahan ;
+    ont:value "tempat pada tempat asal ketiadaan, asalnya lenggang, pada terus yang tetap, pada kelanggengan buana. Bukan memperbanyak pekerjaan, bukan intinya, karena sejatinya, semuanya lengkap, pengiring tetabuhan gembira keramaian pemusatan ajnyana. Baik ketentuannya, sepuluh kesempurnaan, suci semuanya, namanya cita lenggang pada bayangan, cita sari pada"@id .
+
+ex:verso_58 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_58_transliteration ;
+    ont:hasTranslation ex:verso_58_translation .
+
+ex:verso_58_transliteration rdf:type ont:Transliterasi ;
+    ont:value "premana, herang maya ning larang, aci ning rasa, premana, maya ning herang. Sakitu ngawastuna, ka nu tan hana, wisesa, larang ajnyana, pun. Ini nu ngawastukeun mijil ti bwana tan hana, nu ngawangun sanghyang hayu, pun. Ini sangkan hana, wuit pawekasan ning ajnyana, biyaktaupadesa, wekas ning sabda"@su-Latn .
+
+ex:verso_58_translation rdf:type ont:Terjemahan ;
+    ont:value "kesempurnaan, bening banyangan pada kesucian, inti pada perasaan, sempurna, bayangan pada kebeningan. Itulah ketentuannya, pada ketiadaan agung, suci ajnyana, demikian. Ini yang menentukan keluarnya dari buana ketiadaan, yang mendirikan ajnyana. Demikian. Ini asal keadaan, asal pada akhir dalam ajnyana, kenyataan ajaran, ujar pada sabda"@id .
+
+ex:recto_59 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_59_transliteration ;
+    ont:hasTranslation ex:recto_59_translation .
+
+ex:recto_59_transliteration rdf:type ont:Transliterasi ;
+    ont:value "Ini diyeuhan bwana, banua sangkan niskala, ngawayakeun kahanan na kahanan mula ni lenggang, terus ning herang, di sangkan nilantara, langgeng ning bwana, di niskala, lain kukuriyakan lain acina kena jatina, pahi legep sangkep wereg suka karamen, milebuh wasta sanghyang hayu, pamastuna, sapuluh"@su-Latn .
+
+ex:recto_59_translation rdf:type ont:Terjemahan ;
+    ont:value "Ini tempat tinggal buana, buana asal niskala, mengadakan tempat pada tempat awal yang lenggang, terus bening pada asal selamanya, langgeng di buana, di niskala. Bukan memperbanyak pekerjaan, bukan intinya karena kesejatiannya. Semua genap lengkap mengiringi kegembiraan keramaian, memasukki ketentuan ajnyana. Sepuluh ketentuan"@id .
+
+ex:verso_59 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_59_transliteration ;
+    ont:hasTranslation ex:verso_59_translation .
+
+ex:verso_59_transliteration rdf:type ont:Transliterasi ;
+    ont:value "mulia premana, larang sagala, ngaranna cita ning herang maya ning larang, cita larang mulia, maya ning herang, cita herang mayana, mulia larah. Sakitu ngawastuna, ka nu tan hana wisesa, larang ajnyana, pun. Ini nu ngawastu na ajnyana, pun. Bijil ti bwana niskala, nu ngawangun sanghyang ha"@su-Latn .
+
+ex:verso_59_translation rdf:type ont:Terjemahan ;
+    ont:value "yang mulia sempurna, semua suci. Namanya cita yang bening, bayangan pada kesucian, cita suci mulia, bayangan yang bening, cita yang bening, bayangan yang mulia, mulia suci. Itulah ketentuannya, kepada ketiadaan yang agung, suci ajnyana, demikian. Ini yang menentukan ajnyana, demikian. Keluar dari buana niskala, yang mendirikan sanghyang"@id .
+
+ex:recto_60 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_60_transliteration ;
+    ont:hasTranslation ex:recto_60_translation .
+
+ex:recto_60_transliteration rdf:type ont:Transliterasi ;
+    ont:value "yu pun. Dayeuhan di puncak heneng di terus na linglang ning bwana, ngawayakeun kahanan na kahanan di wit na heneng, di terus na langgeng ning bwana, lain tukuriyakan lain acina, kena na jateuna, eusina, sapuluh wastu premana, mulwi larang sagala, ngaranna aci ning maya, herang ratna ning larang, aci ning larang, ma"@su-Latn .
+
+ex:recto_60_translation rdf:type ont:Terjemahan ;
+    ont:value "hayu, demikian. Tempat tinggal di puncak yang tetap, yang terus bersih di buana, mengadakan tempat pada tempat asal yang tetap, yang terus langgeng di buana. Bukan memperbanyak pekerjaan, bukan intinya, karena kesejatiannya. Isinya sepuluh ketentuan yang sempurna. Mulia suci semuanya. Namanya inti pada bayangan, bening permata pada kesucian, inti pada kesucian,"@id .
+
+ex:verso_60 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_60_transliteration ;
+    ont:hasTranslation ex:verso_60_translation .
+
+ex:verso_60_transliteration rdf:type ont:Transliterasi ;
+    ont:value "ya ning herang, aci ning herang, maya ning larang, tiga katuduh premana, mulwi na eusi bwana, pahi legep sangkep na pawereg suka milebuh wastu sanghyang hayu, pahi waya, pamastu sanghyang hayu, pun. Sakitu ngawastuna, ka nu tan hana, wisesa, larang ajnyana. Ini nu ngawastukeun mijil ti bwana niskala,"@su-Latn .
+
+ex:verso_60_translation rdf:type ont:Terjemahan ;
+    ont:value "bayangan yang bening, inti yang bening, bayangan yang suci, tiga petunjuk sempurna, mulia isi buana. Semua genap lengkap dengan pengiring kegembiraan memasuki ajnyana. Semuanya ada, ketentuan ajnyana, demikian. Itulah ketentuannya, pada ketiadaan yang agung, suci ajnyana. Ini yang menentukan keluarnya dari buana niskala,"@id .
+
+ex:recto_61 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_61_transliteration ;
+    ont:hasTranslation ex:recto_61_translation .
+
+ex:recto_61_transliteration rdf:type ont:Transliterasi ;
+    ont:value "ngawangun sanghyang ajnyana, dayeuhhan di puncak lenggang herang na maya, heneng bwana, ngawayakeun kahanan na kahanan, di wuit ning lenggang, ning herang di terus wekasan ning maya, di tengah lang geng bwana, lain kukuriyakan lain acina, kena jatina, ngawayakeun kahanan di nis ning bwana lang"@su-Latn .
+
+ex:recto_61_translation rdf:type ont:Terjemahan ;
+    ont:value "mendirikan sanghyang ajnyana. Tempat tinggal di puncak lenggang bening pada bayangan tetap buana, mengadakan tempat pada tempat asal yang lenggang, yang bening terus pada akhir bayangan, di tengah langgeng buana. Bukan memperbanyak pekerjaan, bukan intinya karena kesejatiannya, mengadakan tempat pada kekosongan buana langgeng,"@id .
+
+ex:verso_61 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_61_transliteration ;
+    ont:hasTranslation ex:verso_61_translation .
+
+ex:verso_61_transliteration rdf:type ont:Transliterasi ;
+    ont:value "geng, di nis na telenging sapuluh, wastu premana larang sagala, ngaranna aci ning lenggang, maya ning herang, aci na lenggang maya ning larang, aci na larang na lenggang maya ning herang, pun. Sakitu pangwastuna, legep sangkep sampak suka subaga, nyangga sanghyang ajnyana, pun. Ka nu tan hana wise"@su-Latn .
+
+ex:verso_61_translation rdf:type ont:Terjemahan ;
+    ont:value "kekosongan yang terdalam, sepuluh ketentuan utama, suci semua. Namanya inti pada lenggang, bayangan yang bening, inti yang lenggang, bayangan yang suci, inti yang suci yang lenggang, bayangan yang bening, demikian. Itulah ketentuannya, genap lengkap sedia, gembira bahagia menerima sanghyang ajnyana, demikian. Pada ketiadaan"@id .
+
+ex:recto_62 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_62_transliteration ;
+    ont:hasTranslation ex:recto_62_translation .
+
+ex:recto_62_transliteration rdf:type ont:Transliterasi ;
+    ont:value "sa, larang ning nyana, pun. Pahi bijil pamastu sanghyang hayu, ngawangun na nyana, di sanghyang ajnyana, pun. Pahi bijil ti bwana niskala, pun. Dayeuhan di terus na lenggang bwana, ngawayakeun kahanan na kahanana di wuit ning herang, sangkana lenggang bwana, di langgeng ning tunggal bwana, pun. Lai"@su-Latn .
+
+ex:recto_62_translation rdf:type ont:Terjemahan ;
+    ont:value "yang agung, suci pada nyana, demikian. Semua keluar ketentuan ajnyana, mendirikan nyana pada sanghyang ajnyana, demikian. Semua keluar dari buana niskala, demikian. Tempat tinggal terus yang lenggang di buana, mengadakan tempat pada tempat asal yang bening, asal yang lenggang buana, pada kelanggengan tunggal buana, demikian."@id .
+
+ex:verso_62 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_62_transliteration ;
+    ont:hasTranslation ex:verso_62_translation .
+
+ex:verso_62_transliteration rdf:type ont:Transliterasi ;
+    ont:value "n kukuriyakan lain acina, kena jatina, di niskala, eusina, sapuluh muliya, premana, larang sagala, ngaranna cita na maya na heneng. Cita maya na herang, cita maya na kuning. Pahi legep sangkep na pangwereg suka subaga, nyangga sanghyang ajnyana, pun. Sakitu ngawastuna ka nu tan hana,"@su-Latn .
+
+ex:verso_62_translation rdf:type ont:Terjemahan ;
+    ont:value "Bukan memperbanyak pekerjaan, bukan intinya, karena kesejatiannya, pada niskala, isinya sepuluh kemuliaan yang sempurna, suci semuanya. Namanya cita pada bayangan yang tetap. Cita bayangan yang bening. Cita bayangan yang kuning. Semua genap lengkap mengiringkan kegembiraan dengan bahagia, menerima sanghyang ajnyana, demikian. Itulah ketentuan ketiadaan yang agung,"@id .
+
+ex:recto_63 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_63_transliteration ;
+    ont:hasTranslation ex:recto_63_translation .
+
+ex:recto_63_transliteration rdf:type ont:Transliterasi ;
+    ont:value "wisesa, larang ajnyana, pun. Ini nu ngawastukeun ti terusna lenggang bwana, ngawangun sanghyang hayu, pun. Pahi mijil ti niskala, lain ti na para sorga ning dewata, nu ngawayakeun kahanan ti niskala, jatina, pun. Ja nu maka sorga dewata, pun. Dayeuhan di terusna larang, maya na herang bwana, ngawaya"@su-Latn .
+
+ex:recto_63_translation rdf:type ont:Terjemahan ;
+    ont:value "suci, demikian. Ini yang membuat ketentuan dari tembusnya lenggang buana, mendirikan ajnyana, demikian. Semua keluar dari niskala, bukan dari para sorga pada dewata, yang mengadakan tempat dari niskala kesejatiannya. Demikian. Karena yang menjadikan sorga dewata, demikian. Tempat tinggal yang terus suci, bayangan yang bening di buana. Mengadakan"@id .
+
+ex:verso_63 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_63_transliteration ;
+    ont:hasTranslation ex:verso_63_translation .
+
+ex:verso_63_transliteration rdf:type ont:Transliterasi ;
+    ont:value "keun kahanan na kahanan dina sangkan herang mayana, di heneng na langgeng larang ning bwana, pun. Lain kukariyakan lain acina, kena jatina, ti niskala, pun. Eusina, sapuluh wastu premana, mulwia larang sagala, pun. Ngaranna herang na maya, aci premana, acina premana, maya ning herang, acina ma"@su-Latn .
+
+ex:verso_63_translation rdf:type ont:Terjemahan ;
+    ont:value "tempat pada asal beningnya bayangan yang tetap, langgeng, suci di buana, demikian. Bukan memperbanyak pekerjaan, bukan intinya karena kesejatiannya dari niskala, demikian. Isinya sepuluh ketentuan yang sempurna, mulia suci semuanya, demikian. Namanya bening pada bayangan, inti yang sempurna, bayangan yang bening, inti"@id .
+
+ex:recto_64 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_64_transliteration ;
+    ont:hasTranslation ex:recto_64_translation .
+
+ex:recto_64_transliteration rdf:type ont:Transliterasi ;
+    ont:value "ya ning larang. Pahi legep sangkep pangwereug ka suka kreta subaga nyana, nyangga sanghyang ajnyana, pun. Sakitu, ngawastuna, ka nu tan hana, wisesa, larang ajnyana, pun. Ining nu ngawastukeun ti terus na larang, maya na herang bwana, ngawangun sanghyang hayu, pun. Pahi mijillan nyana ti niskala, pun."@su-Latn .
+
+ex:recto_64_translation rdf:type ont:Terjemahan ;
+    ont:value "bayangan yang suci. Semua genap lengkap pengiring bergembira bahagia nyana, menerima sanghyang ajnyana, demikian. Itulah ketentuannya, pada ketiadaan yang agung, suci ajnyana, demikian. Ini yang menentukan dari terus yang suci, bayangan yang bening buana. Mendirikan ajnyana, demikian. Semua mengeluarkan nyana dari niskala, demikian."@id .
+
+ex:verso_64 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_64_transliteration ;
+    ont:hasTranslation ex:verso_64_translation .
+
+ex:verso_64_transliteration rdf:type ont:Transliterasi ;
+    ont:value "Dayeuhan di terus bwana, mula ning larang, puncak ning herang, pun. Ngawayakeun kahanan na kahanan, di wwit ning bwana, di terus na lenggang ning larang, di langgeng puncak ning herang, pun. Lain kukuriyakan lain acina, kena, jatina, di niskala. Pahi legep sangkep na pangwereug suka kreta, subaga nyana,"@su-Latn .
+
+ex:verso_64_translation rdf:type ont:Terjemahan ;
+    ont:value "Tempat tinggal pada terus buana, asal yang suci, puncak yang bening, demikian. Mengadakan tempat pada tempat asal di buana, pada terus yang lenggang yang suci, pada kelanggengan puncak yanag bening, demikian. Bukan memperbanyak pekerjaan, bukan intinya karena kesejatiannya di niskala. Semua genap lengkap pengiring gembira bahagia nyana,"@id .
+
+ex:recto_65 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_65_transliteration ;
+    ont:hasTranslation ex:recto_65_translation .
+
+ex:recto_65_transliteration rdf:type ont:Transliterasi ;
+    ont:value "mulia premana, nyangga sanghyang ajnyana, pun. Eusis na sapuluh, wastu mulia premana, larang sagala, pun. Ngaranna aci ri maya heneng, herang na aci maya, nik aci na herang, maya na muliya larang, pun. Sakitu ngawastuna, ka nu tan hana, wisesa, larang ajnyana, pun. Ini nu ngawastukeun tetep"@su-Latn .
+
+ex:recto_65_translation rdf:type ont:Terjemahan ;
+    ont:value "mulia sempurna, menerima sanghyang ajnyana, demikian. Isinya sepuluh ketentuan mulia sempurna, suci semuanya, demikian. Namanya inti bayangan tetap, beningnya inti bayangan, inti yang suci, bayangan yang mulia suci, demikian. Itulah ketentuannya, pada ketiadaan yang agung, suci ajnyana. Demikian. Ini yang menentukan"@id .
+
+ex:verso_65 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_65_transliteration ;
+    ont:hasTranslation ex:verso_65_translation .
+
+ex:verso_65_transliteration rdf:type ont:Transliterasi ;
+    ont:value "rus bwana, mula ning larang puncak ning herang, pun. Ngawangun sanghyang hayu, pun. Pahi patitis nyana, ti niskala, pun. Dayeuhhan di bwana larang, maya na puncak ning herang, wuit tunggal pawekasan ning ajnyana, niskala, pun. Ngawayakeun kahanan na kahanan wuit ning sangka"@su-Latn .
+
+ex:verso_65_translation rdf:type ont:Terjemahan ;
+    ont:value "terus buana, permulaan pada kesucian puncak yang bening, demikian. Menegakkan ajnyana, demikian. Semua mengarahkan kepada nyana dari niskala, demikian. Tempat tinggal di buana suci, bayangan pada puncak yang bening, asal tunggal berakhir pada ajnyana, di niskala, demikian. Mengadakan tempat pada tempat asal pada asal"@id .
+
+ex:recto_66 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_66_transliteration ;
+    ont:hasTranslation ex:recto_66_translation .
+
+ex:recto_66_transliteration rdf:type ont:Transliterasi ;
+    ont:value "n larang mula na maya, di tengah langgeng ning herang, di niskala, pun. Lain kukuriyakan lain acina, kena jatina, pun. Pahi legep sangkep na pang werega suka muliya, kreta pawitra utama premana, nyana, nyangga sanghyang ajnyana, pun. Eusina, sapuluh, wastu utama, premana, larang sagala, pun. Nga"@su-Latn .
+
+ex:recto_66_translation rdf:type ont:Terjemahan ;
+    ont:value "kesucian, asal bayangan, di tengah langgeng bening, di niskala, demikian. Bukan memperbanyak pekerjaan, bukan intinya karena kesejatiannya, demikian. Semua genap lengkap pengiring gembira, mulia, bahagia, suci, utama, sempurna, nyana, menerima sanghyang ajnyana, demikian. Isinya sepuluh ketetapan yang utama, sempurna, suci semuanya, demikian. Namanya"@id .
+
+ex:verso_66 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_66_transliteration ;
+    ont:hasTranslation ex:verso_66_translation .
+
+ex:verso_66_transliteration rdf:type ont:Transliterasi ;
+    ont:value "ranna mutia citana, heneng. Mutiya cita ning herang. Mutiya cita ning larang, pun. Sakitu, ngawastu na ka nu tan hana, wisesa, larang ajnyana, pun. Ini ti bwana larang, mayana, puncak ning herang, ngawastukeun sanghyang hayu, ngawangngun sanghyang ajnyana, pun. Ti niskala, pahi niskeun kahanan"@su-Latn .
+
+ex:verso_66_translation rdf:type ont:Terjemahan ;
+    ont:value "mutiara cita yang tetap. Mutiara cita yang bening. Mutiara cita yang suci, demikian. Itulah ketetapan pada ketiadaan yang agung, suci ajnyana, demikian. Ini dari buana suci, bayangan pada puncak yang bening, menetapkan ajnyana, menegakkan sanghyang ajnyana, demikian. Dari nsikala semua mengosongkan tempat"@id .
+
+ex:recto_67 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_67_transliteration ;
+    ont:hasTranslation ex:recto_67_translation .
+
+ex:recto_67_transliteration rdf:type ont:Transliterasi ;
+    ont:value "di nis ning bwana, langgeng, di nis na telenging, ka nu leuwih ni larang ajnyana, pun. Pahi pasra nyana, niskala, tunggal ajnyana, pun. Sabda padesa, nu wisesa, legep tunggal nyana, ti niskala, ka madiana, ning ajnyana, pun. Sahur nu wisesa, lamun ageus titis sowara kreta pasra, tunggal ning ajnyana"@su-Latn .
+
+ex:recto_67_translation rdf:type ont:Terjemahan ;
+    ont:value "pada kekosongan buana, langgeng pada kekosongan terdalam, kepada yang lebih dari kesucian ajnyana, demikian. Semua permata, nyana, niskala, tunggal ajnyana, demikian. Sabda ajaran yang agung, genap tunggal nyana dari niskala ke dunia, pada ajnyana, demikian. Ujar yang kuasa, kalau sudah tercapai suara yang sempurna, permata tunggal pada ajnyana,"@id .
+
+ex:verso_67 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_67_transliteration ;
+    ont:hasTranslation ex:verso_67_translation .
+
+ex:verso_67_transliteration rdf:type ont:Transliterasi ;
+    ont:value "hanteu nu katitigenan nyana, ti niskala. Pahi ngawayakeun kahanan di nis ning bwana, langgeng di nis telenging jati, ti luar, aya leuwih larang kahanan ti madiya ning tan hana, dina wekas ning tan katuduhhan dina wuit mula pawekasan ning ajnyana, di adras asra pawekasan ning bwana, dina mu"@su-Latn .
+
+ex:verso_67_translation rdf:type ont:Terjemahan ;
+    ont:value "tidak terawasi nyana dari niskala. Semua mengadakan tempat pada kekosongan di buana, langgeng pada kekosongan terdalam yang sejati, dari luar ada yang lebih suci, tempat di dunia ketiadaan, pada akhir yang tak tertunjukkan pada asal mula berakhir di ajnyana. Pada kekuatan permata berakhir di buana, pada"@id .
+
+ex:recto_68 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_68_transliteration ;
+    ont:hasTranslation ex:recto_68_translation .
+
+ex:recto_68_transliteration rdf:type ont:Transliterasi ;
+    ont:value "la, adras pawekasan ning tan hana, dina luput sangkan pawekasan ning a ajnyana, pun. Sakitu, kawekasannanna nu siya tuhu mangun rahayu, nu laksana mawa darma, nu satiya di ajnyana, nu meunang hatos sarasa, hamo tresna di sarira, pun. Dayeuhan di buana h(e)neng sunya keleng, ti manusa. Ageus"@su-Latn .
+
+ex:recto_68_translation rdf:type ont:Terjemahan ;
+    ont:value "awal kekuatan berakhir dalam ketiadaan, pada kelepasan asal berakhir pada ajnyana, demikian. Itulah wejangan terakhir yang mulia setia menegakkan keselamatan, yang berhasil membawa darma, yang setia pada ajnyana, yang mendapat kekuatan rasa, tidak akan merasa bingung pada diri, demikian. Tempat tinggal di buana tetap, yang sunyi terpisah dari manusia. Setelah"@id .
+
+ex:verso_68 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_68_transliteration ;
+    ont:hasTranslation ex:verso_68_translation .
+
+ex:verso_68_transliteration rdf:type ont:Transliterasi ;
+    ont:value "kahusir na jati, ageus cu(n)duk ka na puhun datang kana tangkal a(m)bu ayah ageus sasra kreta, palipurna, ning ajnyana, ti a(m)bu ayah, meunang wisésa, di niskala, ageus kabéréan jagatpramana nyana, wenang satata, wisésa ning ajnyana. Ageus dibaan ka kahanan suka kreta manglaba-laba, ligar"@su-Latn .
+
+ex:verso_68_translation rdf:type ont:Terjemahan ;
+    ont:value "tercapai kesejatian, sudah sampai kepada asal datang kepada pangkal, ibu dan ayah sudah satu permata mulia, sempurna pada ajnyana. Dari ibu dan ayah mendapat kekuasaan di niskala, sudah diberi jagatpramana, nyana, wenang sejajar, berkuasa, pada ajnyana. Sudah dibawa ke tempat yang menyenangkan, bahagia tercapai, "@id .
+
+ex:recto_69 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:recto_69_transliteration ;
+    ont:hasTranslation ex:recto_69_translation .
+
+ex:recto_69_transliteration rdf:type ont:Transliterasi ;
+    ont:value "nyana, ligar yusa, ajnyana, wenang wisésa, sakama-kama ning nyana, wenang wisésa, dina bwana, niskala, pun. Ja nu wenang nya(ng)ga-nya(ng)ga sanghyang ajnyana, nu nyukung ngawangun sanghyang hayu, kana mulaning tan hana, pun sakitu. Ageus na nu luput tapa, wisésa deu(ng) ajnyana, mulaning darma, sangkan niskala, lunas ta"@su-Latn .
+
+ex:recto_69_translation rdf:type ont:Terjemahan ;
+    ont:value "nyana yang tak terputus, umur yang tak ada putusnya, ajnyana, wenang berkuasa, semau-maunya dalam nyana, wenang berkuasa, di buana niskala, demikian. Karena yang wenang menerima sanghyang ajnyana, yang menopang menegakkan ajnyana, kepada asal mula ketiadaan, demikian. Setelah selesai yang bertapa, kuasa dengan ajnyana, asal dari darma, asal niskala, dasar ketiadaan, "@id .
+
+ex:verso_69 rdf:type ont:SisiHalaman ;
+    ont:isFromManuscript ex:SanghyangTatwaAjnyana ;
+    ont:hasTransliteration ex:verso_69_transliteration ;
+    ont:hasTranslation ex:verso_69_translation .
+
+ex:verso_69_transliteration rdf:type ont:Transliterasi ;
+    ont:value "n hana, pun. Ini pustaka, bijil ti wit mula, ning tan hana, pun. Nu tan hana, leuwih lawang ajnyana, pun. Dayeuhan di buana h(e)neng, suniya keleng, di pigeusan(eun) nyu(k)mana, nyiyeun na pustaka, pun."@su-Latn .
+
+ex:verso_69_translation rdf:type ont:Terjemahan ;
+    ont:value "demikian. Ini pustaka keluar dari asal mula pada ketiadaan, demikian. Yang tidak ada lebih pintu ajnyana, demikian. Tempat tinggal di buana tetap, sunyi, terpisah, pada tempat untuk nyukmana, membuat pustaka, demikian. "@id .
