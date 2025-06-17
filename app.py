@@ -1,7 +1,7 @@
 import streamlit as st
 from SPARQLWrapper import SPARQLWrapper, JSON
 
-SPARQL_ENDPOINT = "http://localhost:7200/repositories/1rv"  
+SPARQL_ENDPOINT = "http://semantikweb-production.up.railway.app/semantik-web/sparql"  
 
 # Enhanced styling with better design
 st.markdown("""
